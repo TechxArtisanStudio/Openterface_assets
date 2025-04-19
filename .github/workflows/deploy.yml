@@ -13,14 +13,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build project
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies for minification
+        run: |
+          npm install -g uglify-js csso-cli
+
+      - name: Build and minify project
         run: |
           mkdir -p dist/css
           mkdir -p dist/js
           mkdir -p dist/images
-          cp -r src/css/* dist/css
-          cp -r src/js/* dist/js
           cp -r src/images/* dist/images
+          csso src/css/*.css -o dist/css/styles.min.css
+          uglifyjs src/js/*.js -o dist/js/scripts.min.js
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
