@@ -15,7 +15,9 @@ jobs:
 
       - name: Build project
         run: |
-          mkdir -p dist
+          mkdir -p dist/css
+          mkdir -p dist/js
+          mkdir -p dist/images
           cp -r src/css/* dist/css
           cp -r src/js/* dist/js
           cp -r src/images/* dist/images
