@@ -25,18 +25,7 @@ jobs:
           npm install -g uglify-js csso-cli
 
       - name: Build and minify project
-        run: |
-          mkdir -p dist/css
-          mkdir -p dist/js
-          mkdir -p dist/images
-          # Copy all images to dist/images
-          find src/images -type f -exec cp --parents {} dist \; || echo "No images to copy"
-          # Convert images to WebP format
-          find src/images -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) -exec sh -c 'cwebp "$1" -o "dist/images/$(basename "${1%.*}.webp")"' _ {} \;
-          # Minify CSS files
-          find src/css -type f -name "*.css" -exec sh -c 'csso "$1" -o "dist/css/$(basename "${1%.css}.min.css")"' _ {} \;
-          # Minify JS files
-          find src/js -type f -name "*.js" -exec sh -c 'uglifyjs "$1" -o "dist/js/$(basename "${1%.js}.min.js")"' _ {} \;
+        run: ./build.sh
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
