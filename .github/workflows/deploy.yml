@@ -18,8 +18,10 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Install dependencies for minification
+      - name: Install dependencies for minification and image conversion
         run: |
+          sudo apt-get update
+          sudo apt-get install -y webp
           npm install -g uglify-js csso-cli
 
       - name: Build and minify project
@@ -35,6 +37,10 @@ jobs:
           for file in src/js/*.js; do
             [ -e "$file" ] || continue
             uglifyjs "$file" -o "dist/js/$(basename "${file%.js}.min.js")"
+          done
+          for file in src/images/*.{png,jpg,jpeg}; do
+            [ -e "$file" ] || continue
+            cwebp "$file" -o "dist/images/$(basename "${file%.*}.webp")"
           done
 
       - name: Deploy to gh-pages
