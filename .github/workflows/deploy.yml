@@ -29,19 +29,14 @@ jobs:
           mkdir -p dist/css
           mkdir -p dist/js
           mkdir -p dist/images
-          cp -r src/images/* dist/images || echo "No images to copy"
-          for file in src/css/*.css; do
-            [ -e "$file" ] || continue
-            csso "$file" -o "dist/css/$(basename "${file%.css}.min.css")"
-          done
-          for file in src/js/*.js; do
-            [ -e "$file" ] || continue
-            uglifyjs "$file" -o "dist/js/$(basename "${file%.js}.min.js")"
-          done
-          for file in src/images/*.{png,jpg,jpeg}; do
-            [ -e "$file" ] || continue
-            cwebp "$file" -o "dist/images/$(basename "${file%.*}.webp")"
-          done
+          # Copy all images to dist/images
+          find src/images -type f -exec cp --parents {} dist \; || echo "No images to copy"
+          # Convert images to WebP format
+          find src/images -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) -exec sh -c 'cwebp "$1" -o "dist/images/$(basename "${1%.*}.webp")"' _ {} \;
+          # Minify CSS files
+          find src/css -type f -name "*.css" -exec sh -c 'csso "$1" -o "dist/css/$(basename "${1%.css}.min.css")"' _ {} \;
+          # Minify JS files
+          find src/js -type f -name "*.js" -exec sh -c 'uglifyjs "$1" -o "dist/js/$(basename "${1%.js}.min.js")"' _ {} \;
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
