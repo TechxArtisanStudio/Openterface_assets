@@ -27,9 +27,15 @@ jobs:
           mkdir -p dist/css
           mkdir -p dist/js
           mkdir -p dist/images
-          cp -r src/images/* dist/images
-          csso src/css/*.css -o dist/css/styles.min.css
-          uglifyjs src/js/*.js -o dist/js/scripts.min.js
+          cp -r src/images/* dist/images || echo "No images to copy"
+          for file in src/css/*.css; do
+            [ -e "$file" ] || continue
+            csso "$file" -o "dist/css/$(basename "${file%.css}.min.css")"
+          done
+          for file in src/js/*.js; do
+            [ -e "$file" ] || continue
+            uglifyjs "$file" -o "dist/js/$(basename "${file%.js}.min.js")"
+          done
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
