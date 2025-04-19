@@ -25,7 +25,7 @@ jobs:
           npm install -g uglify-js csso-cli
 
       - name: Build and minify project
-        run: ./build.sh
+        run: sh ./build.sh
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
