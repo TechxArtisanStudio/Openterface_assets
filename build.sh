@@ -37,9 +37,6 @@ echo "Minifying CSS files..."
 for file in $css_files; do
   echo "Input CSS file: $file"
   target_dir="dist/css/$(dirname "$file" | sed "s|^src\/css||")"
-  if [ "$target_dir" = "dist/css/" ]; then
-    target_dir="dist/css"
-  fi
   mkdir -p "$target_dir"
   output_file="$target_dir$(basename "${file%.css}.min.css")"
   echo "Target directory: $target_dir"
