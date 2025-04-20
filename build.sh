@@ -21,7 +21,7 @@ echo "$image_files"
 echo "Converting images to WebP format..."
 for file in $image_files; do
   target_dir="dist/images/$(dirname "$file" | sed "s|^src/images/||")"
-  if [[ "$target_dir" == "dist/images/" ]]; then
+  if [ "$target_dir" = "dist/images/" ]; then
     target_dir="dist/images"
   fi
   mkdir -p "$target_dir"
@@ -39,7 +39,7 @@ echo "$css_files"
 echo "Minifying CSS files..."
 for file in $css_files; do
   target_dir="dist/css/$(dirname "$file" | sed "s|^src/css/||")"
-  if [[ "$target_dir" == "dist/css/" ]]; then
+  if [ "$target_dir" = "dist/css/" ]; then
     target_dir="dist/css"
   fi
   mkdir -p "$target_dir"
@@ -57,7 +57,7 @@ echo "$js_files"
 echo "Minifying JS files..."
 for file in $js_files; do
   target_dir="dist/js/$(dirname "$file" | sed "s|^src/js/||")"
-  if [[ "$target_dir" == "dist/js/" ]]; then
+  if [ "$target_dir" = "dist/js/" ]; then
     target_dir="dist/js"
   fi
   mkdir -p "$target_dir"
