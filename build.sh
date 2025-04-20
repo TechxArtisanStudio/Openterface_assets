@@ -35,7 +35,7 @@ echo "$css_files"
 # Minify CSS files
 echo "Minifying CSS files..."
 for file in $css_files; do
-  target_dir="dist/css/$(dirname "$file" | sed "s|^src/||")"
+  target_dir="dist/css/$(dirname "$file" | sed "s|^src/css/||")"
   mkdir -p "$target_dir"
   echo "Processing CSS: $file -> $target_dir/$(basename "${file%.css}.min.css")"
   csso "$file" -o "$target_dir/$(basename "${file%.css}.min.css")"
@@ -50,7 +50,7 @@ echo "$js_files"
 # Minify JS files
 echo "Minifying JS files..."
 for file in $js_files; do
-  target_dir="dist/js/$(dirname "$file" | sed "s|^src/||")"
+  target_dir="dist/js/$(dirname "$file" | sed "s|^src/js/||")"
   mkdir -p "$target_dir"
   echo "Processing JS: $file -> $target_dir/$(basename "${file%.js}.min.js")"
   uglifyjs "$file" -o "$target_dir/$(basename "${file%.js}.min.js")"
