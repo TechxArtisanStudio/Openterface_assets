@@ -5,6 +5,7 @@ echo "Creating necessary directories..."
 mkdir -p dist/css
 mkdir -p dist/js
 mkdir -p dist/images
+cp src/CNAME dist/CNAME
 
 # Copy all images to dist/images while preserving folder structure
 echo "Copying images to dist/images..."
