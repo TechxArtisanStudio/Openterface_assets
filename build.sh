@@ -38,13 +38,16 @@ echo "$css_files"
 # Minify CSS files
 echo "Minifying CSS files..."
 for file in $css_files; do
+  echo "Input CSS file: $file"
   target_dir="dist/css/$(dirname "$file" | sed "s|^src/css/||")"
   if [ "$target_dir" = "dist/css/" ]; then
     target_dir="dist/css"
   fi
   mkdir -p "$target_dir"
-  echo "Processing CSS: $file -> $target_dir/$(basename "${file%.css}.min.css")"
-  csso "$file" -o "$target_dir/$(basename "${file%.css}.min.css")"
+  output_file="$target_dir/$(basename "${file%.css}.min.css")"
+  echo "Target directory: $target_dir"
+  echo "Output CSS file: $output_file"
+  csso "$file" -o "$output_file"
 done
 
 # Generate a list of JS files to minify
@@ -56,13 +59,16 @@ echo "$js_files"
 # Minify JS files
 echo "Minifying JS files..."
 for file in $js_files; do
+  echo "Input JS file: $file"
   target_dir="dist/js/$(dirname "$file" | sed "s|^src/js/||")"
   if [ "$target_dir" = "dist/js/" ]; then
     target_dir="dist/js"
   fi
   mkdir -p "$target_dir"
-  echo "Processing JS: $file -> $target_dir/$(basename "${file%.js}.min.js")"
-  uglifyjs "$file" -o "$target_dir/$(basename "${file%.js}.min.js")"
+  output_file="$target_dir/$(basename "${file%.js}.min.js")"
+  echo "Target directory: $target_dir"
+  echo "Output JS file: $output_file"
+  uglifyjs "$file" -o "$output_file"
 done
 
 echo "Build process completed."
