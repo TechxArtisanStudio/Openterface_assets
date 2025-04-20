@@ -21,6 +21,9 @@ echo "$image_files"
 echo "Converting images to WebP format..."
 for file in $image_files; do
   target_dir="dist/images/$(dirname "$file" | sed "s|^src/images/||")"
+  if [[ "$target_dir" == "dist/images/" ]]; then
+    target_dir="dist/images"
+  fi
   mkdir -p "$target_dir"
   echo "Processing image: $file -> $target_dir/$(basename "${file%.*}.webp")"
   cwebp "$file" -o "$target_dir/$(basename "${file%.*}.webp")"
