@@ -20,12 +20,9 @@ echo "$image_files"
 # Convert images to WebP format
 echo "Converting images to WebP format..."
 for file in $image_files; do
-  target_dir="dist/images/$(dirname "$file" | sed "s|^src//images//||")"
-  if [ "$target_dir" = "dist/images/" ]; then
-    target_dir="dist/images"
-  fi
+  target_dir="dist/images/$(dirname "$file" | sed "s|^src\/images||")"
   mkdir -p "$target_dir"
-  echo "Processing image: $file -> $target_dir/$(basename "${file%.*}.webp")"
+  echo "Processing image: $file -> $target_dir$(basename "${file%.*}.webp")"
   cwebp "$file" -o "$target_dir/$(basename "${file%.*}.webp")"
 done
 
@@ -39,12 +36,12 @@ echo "$css_files"
 echo "Minifying CSS files..."
 for file in $css_files; do
   echo "Input CSS file: $file"
-  target_dir="dist/css/$(dirname "$file" | sed "s|^src//css//||")"
+  target_dir="dist/css/$(dirname "$file" | sed "s|^src\/css||")"
   if [ "$target_dir" = "dist/css/" ]; then
     target_dir="dist/css"
   fi
   mkdir -p "$target_dir"
-  output_file="$target_dir/$(basename "${file%.css}.min.css")"
+  output_file="$target_dir$(basename "${file%.css}.min.css")"
   echo "Target directory: $target_dir"
   echo "Output CSS file: $output_file"
   csso "$file" -o "$output_file"
@@ -62,7 +59,7 @@ for file in $js_files; do
   echo "Input JS file: $file"
   target_dir="dist/js/$(dirname "$file" | sed "s|^src\/js||")"
   mkdir -p "$target_dir"
-  output_file="$target_dir/$(basename "${file%.js}.min.js")"
+  output_file="$target_dir$(basename "${file%.js}.min.js")"
   echo "Target directory: $target_dir"
   echo "Output JS file: $output_file"
   uglifyjs "$file" -o "$output_file"
