@@ -60,7 +60,7 @@ echo "$js_files"
 echo "Minifying JS files..."
 for file in $js_files; do
   echo "Input JS file: $file"
-  target_dir="dist/js/$(dirname "$file" | sed "s|^src//js//||")"
+  target_dir="dist/js/$(dirname "$file" | sed "s|^src\/js\/||")"
   if [ "$target_dir" = "dist/js/" ]; then
     target_dir="dist/js"
   fi
