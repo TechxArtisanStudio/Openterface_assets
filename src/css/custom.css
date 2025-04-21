@@ -1054,3 +1054,83 @@
     width: 100%; /* Set a base width */
     aspect-ratio: 4 / 1; /* Maintain the aspect ratio */
 }
+
+/* Slideshow styles */
+.slideshow-container {
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slideshow-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.slides {
+    display: none;
+    width: 100%;
+}
+
+.slides img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 500px;
+    object-fit: contain;
+}
+
+/* Update to fix slideshow image sizing */
+.slides img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.slideshow-text {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    color: #333; /* Dark color for text */
+}
+
+.slideshow-text p {
+    margin: 0;
+    padding: 0;
+}
+
+.more-link {
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* Responsive styling for slideshow */
+@media screen and (max-width: 768px) {
+    .slideshow-text {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .slideshow-text {
+        padding: 8px;
+        font-size: 12px;
+    }
+}

@@ -6,6 +6,7 @@
 }
 
 .md-typeset {
+
     .admonition.frequent-question,
     details.frequent-question,
     .admonition.faq,
@@ -14,24 +15,24 @@
     }
 
     .frequent-question, .faq {
-        & > .admonition-title, & > summary {
+        &>.admonition-title, &>summary {
             background-color: var(--admonition-bg-color-base);
         }
 
-        & > .admonition-title::before, & > summary::before {
+        &>.admonition-title::before, &>summary::before {
             background-color: var(--admonition-border-color);
         }
     }
 
     .frequent-question {
-        & > .admonition-title::before, & > summary::before {
+        &>.admonition-title::before, &>summary::before {
             -webkit-mask-image: var(--icon-frequent-question);
             mask-image: var(--icon-frequent-question);
         }
     }
 
     .faq {
-        & > .admonition-title::before, & > summary::before {
+        &>.admonition-title::before, &>summary::before {
             -webkit-mask-image: var(--icon-faq);
             mask-image: var(--icon-faq);
         }
@@ -39,17 +40,18 @@
 }
 
 mark.state1 {
-    background-color: #ffd699; /* A somewhat orange color */
+    background-color: #ffd699;
+    /* A somewhat orange color */
 }
 
 mark.state2 {
     background-color: #ffcccc;
 }
-  
+
 mark.state3 {
     background-color: #ccccff;
 }
-  
+
 mark.state4 {
     background-color: #ccffcc;
 }
@@ -60,4 +62,74 @@ mark.state4 {
 
 .faq {
     color: #FF8D1A
+}
+
+.slideshow-container {
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slideshow-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.slides {
+    display: none;
+    width: 100%;
+}
+
+.slides img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 500px;
+    object-fit: contain;
+}
+
+.slideshow-text {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    color: #333;
+    /* Dark color for text */
+}
+
+.slideshow-text p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+    .slideshow-text {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .slideshow-text {
+        padding: 8px;
+        font-size: 12px;
+    }
 }
