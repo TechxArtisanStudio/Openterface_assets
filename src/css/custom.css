@@ -1033,3 +1033,16 @@
         font-size: 0.8rem;
     }
 }
+
+.btngogoleplay {
+    color: white;
+    border-radius: 5px;
+    padding: 0; /* Remove padding to maintain aspect ratio */
+    text-decoration: none;
+    background-image: url('https://assets.openterface.com/images/appstore/GetItOnGooglePlay_Badge_Web_color_English.png');
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 100%; /* Set a base width */
+    aspect-ratio: 3 / 1; /* Maintain the aspect ratio */
+}
