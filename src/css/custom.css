@@ -534,10 +534,11 @@
 }
 
 #op-bubble p {
-    margin-top: 0.5rem;
     align-items: center;
-    margin-bottom: 1rem;
     padding-left: 3rem;
+    padding-top: 6px;
+    margin-top: 0rem;
+    margin-bottom: 0;
 }
 
 .dialogue-bubble::after {
@@ -821,12 +822,6 @@
         border-width: 12px;
     }
 
-    #op-bubble p {
-        padding-top: 6px;
-        margin-top: 0rem;
-        margin-bottom: 1rem;
-    }
-
     #join-waitlist-button {
         float: none;
         display: block;
@@ -1045,4 +1040,17 @@
     display: inline-block;
     width: 100%; /* Set a base width */
     aspect-ratio: 3 / 1; /* Maintain the aspect ratio */
+}
+
+.btnappstore {
+    color: white;
+    border-radius: 5px;
+    padding: 0; /* Remove padding to maintain aspect ratio */
+    text-decoration: none;
+    background-image: url('https://assets.openterface.com/images/appstore/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_wht_092917.svg');
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 100%; /* Set a base width */
+    aspect-ratio: 4 / 1; /* Maintain the aspect ratio */
 }
