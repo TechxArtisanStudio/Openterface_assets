@@ -1096,7 +1096,7 @@
     width: 100%;
     padding: 15px;
     text-align: center;
-    color: var(--description-font-dark);
+    color: var(--description-font-light);
 }
 
 .slideshow-text p {
@@ -1137,6 +1137,6 @@
 
 @media (prefers-color-scheme: dark) {
     .slideshow-text {
-        color: var(--description-font-light);
+        color: var(--description-font-dark);
     }
 }
