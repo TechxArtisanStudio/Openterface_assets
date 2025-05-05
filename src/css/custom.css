@@ -1099,10 +1099,6 @@
     color: var(--description-font-dark);
 }
 
-[data-md-color-scheme="slate"] .slideshow-text {
-    color: var(--description-font-light);
-}
-
 .slideshow-text p {
     margin: 0;
     padding: 0;
@@ -1141,6 +1137,6 @@
 
 @media (prefers-color-scheme: dark) {
     .slideshow-text {
-        color: var(--description-font-dark);
+        color: var(--description-font-light);
     }
 }
