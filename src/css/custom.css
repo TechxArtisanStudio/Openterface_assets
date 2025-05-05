@@ -1096,6 +1096,10 @@
     width: 100%;
     padding: 15px;
     text-align: center;
+    color: var(--description-font-dark);
+}
+
+[data-md-color-scheme="slate"] .slideshow-text {
     color: var(--description-font-light);
 }
 
