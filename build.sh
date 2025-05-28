@@ -5,11 +5,14 @@ echo "Creating necessary directories..."
 mkdir -p dist/css
 mkdir -p dist/js
 mkdir -p dist/images
+mkdir -p dist/openterface/firmware
 cp src/CNAME dist/CNAME
 
-# Copy all images to dist/images while preserving folder structure
+# Copy all images and firmware to dist/images while preserving folder structure
 echo "Copying images to dist/images..."
 rsync -a src/images/ dist/images/
+echo "Copying firmware to dist/openterface/firmware..."
+rsync -a src/openterface/firmware/ dist/openterface/firmware/
 echo "Images copied successfully."
 
 # Generate a list of image files to convert to WebP
