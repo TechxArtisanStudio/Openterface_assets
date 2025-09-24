@@ -30,6 +30,8 @@ Copy and paste these links into your markdown files:
 
 ![appstore-GetItOnGooglePlay_Badge_Web_color_English](https://assets.openterface.com/images/appstore/GetItOnGooglePlay_Badge_Web_color_English.webp)
 
+![appstore-GetItOn_flathub](https://assets.openterface.com/images/appstore/GetItOn_flathub.webp)
+
 ![blog-Casey-Setup-with-Pi-and-minikvm](https://assets.openterface.com/images/blog/Casey-Setup-with-Pi-and-minikvm.webp)
 
 ![blog-Casey-iPad-KVM-chat](https://assets.openterface.com/images/blog/Casey-iPad-KVM-chat.webp)
@@ -41,6 +43,8 @@ Copy and paste these links into your markdown files:
 ![blog-Veera-audio-bridge-chat-with-veera](https://assets.openterface.com/images/blog/Veera-audio-bridge-chat-with-veera.webp)
 
 ![cover-Gibby-with-Christmas-hat](https://assets.openterface.com/images/cover-Gibby-with-Christmas-hat.webp)
+
+![cover](https://assets.openterface.com/images/cover.webp)
 
 ![favicon](https://assets.openterface.com/images/favicon.webp)
 
@@ -84,6 +88,8 @@ Copy and paste these links into your markdown files:
 
 ![op-avatar](https://assets.openterface.com/images/op-avatar.webp)
 
+![openterface-mini-kvm-v1-9-s](https://assets.openterface.com/images/openterface-mini-kvm-v1-9-s.webp)
+
 ![openterface](https://assets.openterface.com/images/openterface.webp)
 
 ![product-android_plus_pen](https://assets.openterface.com/images/product/android_plus_pen.webp)
@@ -100,11 +106,27 @@ Copy and paste these links into your markdown files:
 
 ![product-openterface-kvm-uconsole-extension-back](https://assets.openterface.com/images/product/openterface-kvm-uconsole-extension-back.webp)
 
+![product-openterface-kvm-uconsole-extension-box-1](https://assets.openterface.com/images/product/openterface-kvm-uconsole-extension-box-1.webp)
+
+![product-openterface-kvm-uconsole-extension-box-2](https://assets.openterface.com/images/product/openterface-kvm-uconsole-extension-box-2.webp)
+
 ![product-openterface-kvm-uconsole-extension-gasket-1](https://assets.openterface.com/images/product/openterface-kvm-uconsole-extension-gasket-1.webp)
 
 ![product-openterface-kvm-uconsole-extension-install-1](https://assets.openterface.com/images/product/openterface-kvm-uconsole-extension-install-1.webp)
 
 ![product-openterface-kvm-uconsole-extension-install-2](https://assets.openterface.com/images/product/openterface-kvm-uconsole-extension-install-2.webp)
+
+![product-openterface-kvm-uconsole-extension-pcb-back](https://assets.openterface.com/images/product/openterface-kvm-uconsole-extension-pcb-back.webp)
+
+![product-openterface-kvm-uconsole-extension-pcb-front](https://assets.openterface.com/images/product/openterface-kvm-uconsole-extension-pcb-front.webp)
+
+![product-openterface-kvm-uconsole-extension-screw-washer-installed](https://assets.openterface.com/images/product/openterface-kvm-uconsole-extension-screw-washer-installed.webp)
+
+![product-openterface-kvm-uconsole-extension-screw-washer-installing](https://assets.openterface.com/images/product/openterface-kvm-uconsole-extension-screw-washer-installing.webp)
+
+![product-openterface-kvm-uconsole-extension-screw-washers](https://assets.openterface.com/images/product/openterface-kvm-uconsole-extension-screw-washers.webp)
+
+![product-openterface-kvm-uconsole-extension-slot-loose](https://assets.openterface.com/images/product/openterface-kvm-uconsole-extension-slot-loose.webp)
 
 ![product-openterface-kvm-uconsole-extension-use-case-1a](https://assets.openterface.com/images/product/openterface-kvm-uconsole-extension-use-case-1a.webp)
 
@@ -154,11 +176,15 @@ Copy and paste these links into your markdown files:
 
 ![product-toolkit-open](https://assets.openterface.com/images/product/toolkit-open.webp)
 
+![product-toolkit-open](https://assets.openterface.com/images/product/toolkit-open.webp)
+
 ![product-toolkit-parts-layout-2-numbers-2024](https://assets.openterface.com/images/product/toolkit-parts-layout-2-numbers-2024.webp)
 
 ![product-toolkit-parts-layout-numbers](https://assets.openterface.com/images/product/toolkit-parts-layout-numbers.webp)
 
 ![product-toolkit-parts](https://assets.openterface.com/images/product/toolkit-parts.webp)
+
+![product-use-case-demo-industrial-pc](https://assets.openterface.com/images/product/use-case-demo-industrial-pc.webp)
 
 ![product-use-case-demo-industrial-pc](https://assets.openterface.com/images/product/use-case-demo-industrial-pc.webp)
 

@@ -11,7 +11,7 @@ from pathlib import Path
 
 def find_image_files(directory):
     """Find all image files that would be converted to WebP."""
-    image_extensions = {'.png', '.jpg', '.jpeg'}
+    image_extensions = {'.png', '.jpg', '.jpeg', '.webp'}
     svg_extensions = {'.svg'}
     image_files = []
     svg_files = []
@@ -35,8 +35,11 @@ def generate_markdown_links(image_files, base_url="https://assets.openterface.co
     markdown_lines = []
     
     for image_path in image_files:
-        # Convert to WebP extension
-        webp_path = image_path.with_suffix('.webp')
+        # If already WebP, keep as is; otherwise convert to WebP extension
+        if image_path.suffix.lower() == '.webp':
+            webp_path = image_path
+        else:
+            webp_path = image_path.with_suffix('.webp')
         
         # Create the full URL
         full_url = f"{base_url}/images/{webp_path}"
