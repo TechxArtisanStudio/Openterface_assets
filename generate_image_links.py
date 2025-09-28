@@ -49,7 +49,7 @@ def generate_markdown_links(image_files, base_url="https://assets.openterface.co
         alt_name = str(webp_path).replace('/', '-').replace('\\', '-').replace('.webp', '')
         
         # Generate markdown link
-        markdown_link = f"![{alt_name}]({full_url})"
+        markdown_link = f"[{alt_name}]({full_url})"
         markdown_lines.append(markdown_link)
     
     return markdown_lines
@@ -67,7 +67,7 @@ def generate_svg_markdown_links(svg_files, base_url="https://assets.openterface.
         alt_name = str(svg_path).replace('/', '-').replace('\\', '-').replace('.svg', '')
         
         # Generate markdown link
-        markdown_link = f"![{alt_name}]({full_url})"
+        markdown_link = f"[{alt_name}]({full_url})"
         markdown_lines.append(markdown_link)
     
     return markdown_lines
