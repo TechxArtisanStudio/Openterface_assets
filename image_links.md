@@ -102,7 +102,35 @@ Copy and paste these links into your markdown files:
 
 ![product-close-up](https://assets.openterface.com/images/product/close-up.webp)
 
+![product-kvm-go-250805-kvm-go-HDMI](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-HDMI.webp)
+
+![product-kvm-go-250805-kvm-go-dp](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-dp.webp)
+
+![product-kvm-go-250805-kvm-go-grop-2](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-grop-2.webp)
+
+![product-kvm-go-250805-kvm-go-group-1](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-group-1.webp)
+
+![product-kvm-go-250805-kvm-go-group-3](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-group-3.webp)
+
+![product-kvm-go-250805-kvm-go-group-4 ](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-group-4 .webp)
+
+![product-kvm-go-250805-kvm-go-hdmi-early-test-1](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-hdmi-early-test-1.webp)
+
+![product-kvm-go-250805-kvm-go-hdmi-early-test-2](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-hdmi-early-test-2.webp)
+
+![product-kvm-go-250925-hdmi-back-cap-off](https://assets.openterface.com/images/product/kvm-go/250925/hdmi-back-cap-off.webp)
+
+![product-kvm-go-250925-hdmi-front-cap-off](https://assets.openterface.com/images/product/kvm-go/250925/hdmi-front-cap-off.webp)
+
+![product-kvm-go-250925-one-hdmi-on-hand-screen-at-the-back](https://assets.openterface.com/images/product/kvm-go/250925/one-hdmi-on-hand-screen-at-the-back.webp)
+
+![product-kvm-go-250925-three-hdmi-screen-at-the-back.jpg](https://assets.openterface.com/images/product/kvm-go/250925/three-hdmi-screen-at-the-back.jpg.webp)
+
+![product-kvm-go-250925-with-new-keychain](https://assets.openterface.com/images/product/kvm-go/250925/with-new-keychain.webp)
+
 ![product-mini-kvm-pins-port](https://assets.openterface.com/images/product/mini-kvm-pins-port.webp)
+
+![product-openterface-kvm-uconsole-expansion-slot-text-orientation](https://assets.openterface.com/images/product/openterface-kvm-uconsole-expansion-slot-text-orientation.webp)
 
 ![product-openterface-kvm-uconsole-extension-back](https://assets.openterface.com/images/product/openterface-kvm-uconsole-extension-back.webp)
 
