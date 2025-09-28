@@ -102,13 +102,13 @@ Copy and paste these links into your markdown files:
 
 ![product-close-up](https://assets.openterface.com/images/product/close-up.webp)
 
-![product-kvm-go-250805-kvm-go-HDMI](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-HDMI.webp)
+![product-kvm-go-250805-kvm-go-HDMI-connecters](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-HDMI-connecters.webp)
 
-![product-kvm-go-250805-kvm-go-dp](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-dp.webp)
-
-![product-kvm-go-250805-kvm-go-grop-2](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-grop-2.webp)
+![product-kvm-go-250805-kvm-go-dp-connecters](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-dp-connecters.webp)
 
 ![product-kvm-go-250805-kvm-go-group-1](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-group-1.webp)
+
+![product-kvm-go-250805-kvm-go-group-2](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-group-2.webp)
 
 ![product-kvm-go-250805-kvm-go-group-3](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-group-3.webp)
 
