@@ -86,6 +86,8 @@ Copy and paste these links into your markdown files:
 
 [kvm-go-kvm-go-surfaces-b](https://assets.openterface.com/images/kvm-go/kvm-go-surfaces-b.webp)
 
+[kvm-go-kvm-go-surfaces-button-side](https://assets.openterface.com/images/kvm-go/kvm-go-surfaces-button-side.webp)
+
 [kvm-go-step-0-all-parts](https://assets.openterface.com/images/kvm-go/step-0-all-parts.webp)
 
 [kvm-go-step-0-overview](https://assets.openterface.com/images/kvm-go/step-0-overview.webp)
