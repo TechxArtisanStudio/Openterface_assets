@@ -82,6 +82,10 @@ Copy and paste these links into your markdown files:
 
 [kvm-go-kvm-go-product-page-subscribe](https://assets.openterface.com/images/kvm-go/kvm-go-product-page-subscribe.webp)
 
+[kvm-go-kvm-go-surfaces-a](https://assets.openterface.com/images/kvm-go/kvm-go-surfaces-a.webp)
+
+[kvm-go-kvm-go-surfaces-b](https://assets.openterface.com/images/kvm-go/kvm-go-surfaces-b.webp)
+
 [kvm-go-step-0-all-parts](https://assets.openterface.com/images/kvm-go/step-0-all-parts.webp)
 
 [kvm-go-step-0-overview](https://assets.openterface.com/images/kvm-go/step-0-overview.webp)
@@ -99,6 +103,8 @@ Copy and paste these links into your markdown files:
 [kvm-go-step-4-target-plugged-b](https://assets.openterface.com/images/kvm-go/step-4-target-plugged-b.webp)
 
 [kvm-go-step-4-target-plugged](https://assets.openterface.com/images/kvm-go/step-4-target-plugged.webp)
+
+[kvm-go-step-5-plug-in-host-computer-1](https://assets.openterface.com/images/kvm-go/step-5-plug-in-host-computer-1.webp)
 
 [kvm-go-step-5-plug-in-host-computer](https://assets.openterface.com/images/kvm-go/step-5-plug-in-host-computer.webp)
 
