@@ -82,6 +82,28 @@ Copy and paste these links into your markdown files:
 
 [kvm-go-kvm-go-product-page-subscribe](https://assets.openterface.com/images/kvm-go/kvm-go-product-page-subscribe.webp)
 
+[kvm-go-step-0-all-parts](https://assets.openterface.com/images/kvm-go/step-0-all-parts.webp)
+
+[kvm-go-step-0-overview](https://assets.openterface.com/images/kvm-go/step-0-overview.webp)
+
+[kvm-go-step-1-plugged](https://assets.openterface.com/images/kvm-go/step-1-plugged.webp)
+
+[kvm-go-step-1-target-port-plugged](https://assets.openterface.com/images/kvm-go/step-1-target-port-plugged.webp)
+
+[kvm-go-step-2-host-port-plugged](https://assets.openterface.com/images/kvm-go/step-2-host-port-plugged.webp)
+
+[kvm-go-step-3-hdmi-plugged](https://assets.openterface.com/images/kvm-go/step-3-hdmi-plugged.webp)
+
+[kvm-go-step-4-target-plugged-a](https://assets.openterface.com/images/kvm-go/step-4-target-plugged-a.webp)
+
+[kvm-go-step-4-target-plugged-b](https://assets.openterface.com/images/kvm-go/step-4-target-plugged-b.webp)
+
+[kvm-go-step-4-target-plugged](https://assets.openterface.com/images/kvm-go/step-4-target-plugged.webp)
+
+[kvm-go-step-5-plug-in-host-computer](https://assets.openterface.com/images/kvm-go/step-5-plug-in-host-computer.webp)
+
+[kvm-go-step-host-usb-plugged](https://assets.openterface.com/images/kvm-go/step-host-usb-plugged.webp)
+
 [labels-host-side](https://assets.openterface.com/images/labels/host-side.webp)
 
 [labels-target-side](https://assets.openterface.com/images/labels/target-side.webp)
