@@ -76,6 +76,8 @@ Copy and paste these links into your markdown files:
 
 [kvm-go-hdmi-p8](https://assets.openterface.com/images/kvm-go/hdmi-p8.webp)
 
+[kvm-go-install-sd](https://assets.openterface.com/images/kvm-go/install-sd.webp)
+
 [kvm-go-kvm-go-group-3](https://assets.openterface.com/images/kvm-go/kvm-go-group-3.webp)
 
 [kvm-go-kvm-go-hdmi-early-test-2](https://assets.openterface.com/images/kvm-go/kvm-go-hdmi-early-test-2.webp)
