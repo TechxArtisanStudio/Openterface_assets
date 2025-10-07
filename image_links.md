@@ -60,6 +60,20 @@ Copy and paste these links into your markdown files:
 
 [guide-macos-dmg-installation6-opened](https://assets.openterface.com/images/guide/macos-dmg-installation6-opened.webp)
 
+[kvm-go-beta-test-1](https://assets.openterface.com/images/kvm-go/beta-test/1.webp)
+
+[kvm-go-beta-test-2](https://assets.openterface.com/images/kvm-go/beta-test/2.webp)
+
+[kvm-go-beta-test-3](https://assets.openterface.com/images/kvm-go/beta-test/3.webp)
+
+[kvm-go-beta-test-4](https://assets.openterface.com/images/kvm-go/beta-test/4.webp)
+
+[kvm-go-beta-test-5](https://assets.openterface.com/images/kvm-go/beta-test/5.webp)
+
+[kvm-go-beta-test-6](https://assets.openterface.com/images/kvm-go/beta-test/6.webp)
+
+[kvm-go-beta-test-7](https://assets.openterface.com/images/kvm-go/beta-test/7.webp)
+
 [kvm-go-hdmi-p1](https://assets.openterface.com/images/kvm-go/hdmi-p1.webp)
 
 [kvm-go-hdmi-p2](https://assets.openterface.com/images/kvm-go/hdmi-p2.webp)
