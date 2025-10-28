@@ -96,6 +96,8 @@ Copy and paste these links into your markdown files:
 
 [kvm-go-kvm-go-hdmi-early-test-2](https://assets.openterface.com/images/kvm-go/kvm-go-hdmi-early-test-2.webp)
 
+[kvm-go-kvm-go-hdmi-vga-dp-group-1](https://assets.openterface.com/images/kvm-go/kvm-go-hdmi-vga-dp-group-1.webp)
+
 [kvm-go-kvm-go-product-page-subscribe](https://assets.openterface.com/images/kvm-go/kvm-go-product-page-subscribe.webp)
 
 [kvm-go-kvm-go-surfaces-a](https://assets.openterface.com/images/kvm-go/kvm-go-surfaces-a.webp)
