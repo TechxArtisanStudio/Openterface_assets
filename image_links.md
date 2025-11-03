@@ -110,6 +110,10 @@ Copy and paste these links into your markdown files:
 
 [kvm-go-step-0-all-parts](https://assets.openterface.com/images/kvm-go/step-0-all-parts.webp)
 
+[kvm-go-step-0-overview-bios](https://assets.openterface.com/images/kvm-go/step-0-overview-bios.webp)
+
+[kvm-go-step-0-overview-win](https://assets.openterface.com/images/kvm-go/step-0-overview-win.webp)
+
 [kvm-go-step-0-overview](https://assets.openterface.com/images/kvm-go/step-0-overview.webp)
 
 [kvm-go-step-1-plugged](https://assets.openterface.com/images/kvm-go/step-1-plugged.webp)
