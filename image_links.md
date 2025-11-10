@@ -60,6 +60,26 @@ Copy and paste these links into your markdown files:
 
 [guide-macos-dmg-installation6-opened](https://assets.openterface.com/images/guide/macos-dmg-installation6-opened.webp)
 
+[kvm-go-KVM-GO-Caps](https://assets.openterface.com/images/kvm-go/KVM-GO-Caps.webp)
+
+[kvm-go-KVM-GO-DP-back-angled](https://assets.openterface.com/images/kvm-go/KVM-GO-DP-back-angled.webp)
+
+[kvm-go-KVM-GO-DP-front-angled](https://assets.openterface.com/images/kvm-go/KVM-GO-DP-front-angled.webp)
+
+[kvm-go-KVM-GO-DP-unbox](https://assets.openterface.com/images/kvm-go/KVM-GO-DP-unbox.webp)
+
+[kvm-go-KVM-GO-HDMI-back-angled](https://assets.openterface.com/images/kvm-go/KVM-GO-HDMI-back-angled.webp)
+
+[kvm-go-KVM-GO-HDMI-front-angled](https://assets.openterface.com/images/kvm-go/KVM-GO-HDMI-front-angled.webp)
+
+[kvm-go-KVM-GO-HDMI-unbox](https://assets.openterface.com/images/kvm-go/KVM-GO-HDMI-unbox.webp)
+
+[kvm-go-KVM-GO-VGA-back-angled](https://assets.openterface.com/images/kvm-go/KVM-GO-VGA-back-angled.webp)
+
+[kvm-go-KVM-GO-VGA-front-angled](https://assets.openterface.com/images/kvm-go/KVM-GO-VGA-front-angled.webp)
+
+[kvm-go-KVM-GO-VGA-unbox](https://assets.openterface.com/images/kvm-go/KVM-GO-VGA-unbox.webp)
+
 [kvm-go-beta-test-1](https://assets.openterface.com/images/kvm-go/beta-test/1.webp)
 
 [kvm-go-beta-test-2](https://assets.openterface.com/images/kvm-go/beta-test/2.webp)
@@ -90,6 +110,8 @@ Copy and paste these links into your markdown files:
 
 [kvm-go-hdmi-p8](https://assets.openterface.com/images/kvm-go/hdmi-p8.webp)
 
+[kvm-go-install-sd-and-led](https://assets.openterface.com/images/kvm-go/install-sd-and-led.webp)
+
 [kvm-go-install-sd](https://assets.openterface.com/images/kvm-go/install-sd.webp)
 
 [kvm-go-kvm-go-group-3](https://assets.openterface.com/images/kvm-go/kvm-go-group-3.webp)
@@ -107,6 +129,8 @@ Copy and paste these links into your markdown files:
 [kvm-go-kvm-go-surfaces-button-side](https://assets.openterface.com/images/kvm-go/kvm-go-surfaces-button-side.webp)
 
 [kvm-go-led-indicator](https://assets.openterface.com/images/kvm-go/led-indicator.webp)
+
+[kvm-go-step-0-all-parts-h](https://assets.openterface.com/images/kvm-go/step-0-all-parts-h.webp)
 
 [kvm-go-step-0-all-parts](https://assets.openterface.com/images/kvm-go/step-0-all-parts.webp)
 
