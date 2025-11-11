@@ -80,6 +80,10 @@ Copy and paste these links into your markdown files:
 
 [kvm-go-KVM-GO-VGA-unbox](https://assets.openterface.com/images/kvm-go/KVM-GO-VGA-unbox.webp)
 
+[kvm-go-KVM-GO-bundle-parts](https://assets.openterface.com/images/kvm-go/KVM-GO-bundle-parts.webp)
+
+[kvm-go-KVM-GO-bundle-unbox](https://assets.openterface.com/images/kvm-go/KVM-GO-bundle-unbox.webp)
+
 [kvm-go-beta-test-1](https://assets.openterface.com/images/kvm-go/beta-test/1.webp)
 
 [kvm-go-beta-test-2](https://assets.openterface.com/images/kvm-go/beta-test/2.webp)
