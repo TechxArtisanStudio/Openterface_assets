@@ -66,11 +66,17 @@ Copy and paste these links into your markdown files:
 
 [kvm-go-KVM-GO-DP-front-angled](https://assets.openterface.com/images/kvm-go/KVM-GO-DP-front-angled.webp)
 
+[kvm-go-KVM-GO-DP-parts](https://assets.openterface.com/images/kvm-go/KVM-GO-DP-parts.webp)
+
 [kvm-go-KVM-GO-DP-unbox](https://assets.openterface.com/images/kvm-go/KVM-GO-DP-unbox.webp)
 
 [kvm-go-KVM-GO-HDMI-back-angled](https://assets.openterface.com/images/kvm-go/KVM-GO-HDMI-back-angled.webp)
 
 [kvm-go-KVM-GO-HDMI-front-angled](https://assets.openterface.com/images/kvm-go/KVM-GO-HDMI-front-angled.webp)
+
+[kvm-go-KVM-GO-HDMI-parts-b](https://assets.openterface.com/images/kvm-go/KVM-GO-HDMI-parts-b.webp)
+
+[kvm-go-KVM-GO-HDMI-parts](https://assets.openterface.com/images/kvm-go/KVM-GO-HDMI-parts.webp)
 
 [kvm-go-KVM-GO-HDMI-unbox](https://assets.openterface.com/images/kvm-go/KVM-GO-HDMI-unbox.webp)
 
@@ -78,7 +84,29 @@ Copy and paste these links into your markdown files:
 
 [kvm-go-KVM-GO-VGA-front-angled](https://assets.openterface.com/images/kvm-go/KVM-GO-VGA-front-angled.webp)
 
+[kvm-go-KVM-GO-VGA-parts](https://assets.openterface.com/images/kvm-go/KVM-GO-VGA-parts.webp)
+
 [kvm-go-KVM-GO-VGA-unbox](https://assets.openterface.com/images/kvm-go/KVM-GO-VGA-unbox.webp)
+
+[kvm-go-KVM-GO-VGA-use-case-1](https://assets.openterface.com/images/kvm-go/KVM-GO-VGA-use-case-1.webp)
+
+[kvm-go-KVM-GO-VGA-use-case-2](https://assets.openterface.com/images/kvm-go/KVM-GO-VGA-use-case-2.webp)
+
+[kvm-go-KVM-GO-VGA-use-case-2b](https://assets.openterface.com/images/kvm-go/KVM-GO-VGA-use-case-2b.webp)
+
+[kvm-go-KVM-GO-VGA-use-case-3-close-up-jetson](https://assets.openterface.com/images/kvm-go/KVM-GO-VGA-use-case-3-close-up-jetson.webp)
+
+[kvm-go-KVM-GO-VGA-use-case-4](https://assets.openterface.com/images/kvm-go/KVM-GO-VGA-use-case-4.webp)
+
+[kvm-go-KVM-GO-VGA-use-case-4b](https://assets.openterface.com/images/kvm-go/KVM-GO-VGA-use-case-4b.webp)
+
+[kvm-go-KVM-GO-bundle-hand-1](https://assets.openterface.com/images/kvm-go/KVM-GO-bundle-hand-1.webp)
+
+[kvm-go-KVM-GO-bundle-hand-2](https://assets.openterface.com/images/kvm-go/KVM-GO-bundle-hand-2.webp)
+
+[kvm-go-KVM-GO-bundle-hand-3](https://assets.openterface.com/images/kvm-go/KVM-GO-bundle-hand-3.webp)
+
+[kvm-go-KVM-GO-bundle-hook-bag](https://assets.openterface.com/images/kvm-go/KVM-GO-bundle-hook-bag.webp)
 
 [kvm-go-KVM-GO-bundle-parts](https://assets.openterface.com/images/kvm-go/KVM-GO-bundle-parts.webp)
 
@@ -133,6 +161,8 @@ Copy and paste these links into your markdown files:
 [kvm-go-kvm-go-surfaces-button-side](https://assets.openterface.com/images/kvm-go/kvm-go-surfaces-button-side.webp)
 
 [kvm-go-led-indicator](https://assets.openterface.com/images/kvm-go/led-indicator.webp)
+
+[kvm-go-openterface-viewer](https://assets.openterface.com/images/kvm-go/openterface-viewer.webp)
 
 [kvm-go-step-0-all-parts-h](https://assets.openterface.com/images/kvm-go/step-0-all-parts-h.webp)
 
