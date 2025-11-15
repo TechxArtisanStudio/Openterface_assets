@@ -194,6 +194,16 @@ Copy and paste these links into your markdown files:
 
 [kvm-go-step-host-usb-plugged](https://assets.openterface.com/images/kvm-go/step-host-usb-plugged.webp)
 
+[kvm-go-use-case-1-vga-1](https://assets.openterface.com/images/kvm-go/use-case/1-vga-1.webp)
+
+[kvm-go-use-case-2-dp-1](https://assets.openterface.com/images/kvm-go/use-case/2-dp-1.webp)
+
+[kvm-go-use-case-3-hdmi-1](https://assets.openterface.com/images/kvm-go/use-case/3-hdmi-1.webp)
+
+[kvm-go-use-case-4-hdmi-micro-1](https://assets.openterface.com/images/kvm-go/use-case/4-hdmi-micro-1.webp)
+
+[kvm-go-use-case-5-hdmi-mini-1](https://assets.openterface.com/images/kvm-go/use-case/5-hdmi-mini-1.webp)
+
 [labels-host-side](https://assets.openterface.com/images/labels/host-side.webp)
 
 [labels-target-side](https://assets.openterface.com/images/labels/target-side.webp)
