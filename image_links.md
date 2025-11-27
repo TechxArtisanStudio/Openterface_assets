@@ -164,6 +164,22 @@ Copy and paste these links into your markdown files:
 
 [kvm-go-openterface-viewer](https://assets.openterface.com/images/kvm-go/openterface-viewer.webp)
 
+[kvm-go-post-design-chat-20241218](https://assets.openterface.com/images/kvm-go/post/design-chat-20241218.webp)
+
+[kvm-go-post-design-chat-20241218b](https://assets.openterface.com/images/kvm-go/post/design-chat-20241218b.webp)
+
+[kvm-go-post-heat-challenge-202509](https://assets.openterface.com/images/kvm-go/post/heat-challenge-202509.webp)
+
+[kvm-go-post-kvm-stick-options-1](https://assets.openterface.com/images/kvm-go/post/kvm-stick-options-1.webp)
+
+[kvm-go-post-kvm-stick-options-2](https://assets.openterface.com/images/kvm-go/post/kvm-stick-options-2.webp)
+
+[kvm-go-post-kvm-stick-options-all](https://assets.openterface.com/images/kvm-go/post/kvm-stick-options-all.webp)
+
+[kvm-go-post-prototype-first-in-hands](https://assets.openterface.com/images/kvm-go/post/prototype-first-in-hands.webp)
+
+[kvm-go-post-prototype-first-pcb](https://assets.openterface.com/images/kvm-go/post/prototype-first-pcb.webp)
+
 [kvm-go-step-0-all-parts-h](https://assets.openterface.com/images/kvm-go/step-0-all-parts-h.webp)
 
 [kvm-go-step-0-all-parts](https://assets.openterface.com/images/kvm-go/step-0-all-parts.webp)
