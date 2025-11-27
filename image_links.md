@@ -164,6 +164,8 @@ Copy and paste these links into your markdown files:
 
 [kvm-go-openterface-viewer](https://assets.openterface.com/images/kvm-go/openterface-viewer.webp)
 
+[kvm-go-post-KVM-lite-dev-analysis](https://assets.openterface.com/images/kvm-go/post/KVM-lite-dev-analysis.webp)
+
 [kvm-go-post-design-chat-20241218](https://assets.openterface.com/images/kvm-go/post/design-chat-20241218.webp)
 
 [kvm-go-post-design-chat-20241218b](https://assets.openterface.com/images/kvm-go/post/design-chat-20241218b.webp)
