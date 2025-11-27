@@ -164,6 +164,8 @@ Copy and paste these links into your markdown files:
 
 [kvm-go-openterface-viewer](https://assets.openterface.com/images/kvm-go/openterface-viewer.webp)
 
+[kvm-go-post-KVM-lite-dev-analysis-2](https://assets.openterface.com/images/kvm-go/post/KVM-lite-dev-analysis-2.webp)
+
 [kvm-go-post-KVM-lite-dev-analysis](https://assets.openterface.com/images/kvm-go/post/KVM-lite-dev-analysis.webp)
 
 [kvm-go-post-design-chat-20241218](https://assets.openterface.com/images/kvm-go/post/design-chat-20241218.webp)
@@ -181,6 +183,8 @@ Copy and paste these links into your markdown files:
 [kvm-go-post-prototype-first-in-hands](https://assets.openterface.com/images/kvm-go/post/prototype-first-in-hands.webp)
 
 [kvm-go-post-prototype-first-pcb](https://assets.openterface.com/images/kvm-go/post/prototype-first-pcb.webp)
+
+[kvm-go-post-prototype-first](https://assets.openterface.com/images/kvm-go/post/prototype-first.webp)
 
 [kvm-go-step-0-all-parts-h](https://assets.openterface.com/images/kvm-go/step-0-all-parts-h.webp)
 
