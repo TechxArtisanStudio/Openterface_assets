@@ -168,8 +168,6 @@ Copy and paste these links into your markdown files:
 
 [kvm-go-post-KVM-lite-dev-analysis](https://assets.openterface.com/images/kvm-go/post/KVM-lite-dev-analysis.webp)
 
-[kvm-go-post-design-chat-20241218](https://assets.openterface.com/images/kvm-go/post/design-chat-20241218.webp)
-
 [kvm-go-post-design-chat-20241218b](https://assets.openterface.com/images/kvm-go/post/design-chat-20241218b.webp)
 
 [kvm-go-post-heat-challenge-202509](https://assets.openterface.com/images/kvm-go/post/heat-challenge-202509.webp)
@@ -235,6 +233,22 @@ Copy and paste these links into your markdown files:
 [openterface-mini-kvm-v1-9-s](https://assets.openterface.com/images/openterface-mini-kvm-v1-9-s.webp)
 
 [openterface](https://assets.openterface.com/images/openterface.webp)
+
+[post-kvmgo-firmware-image-1763953443609](https://assets.openterface.com/images/post/kvmgo-firmware/image-1763953443609.webp)
+
+[post-kvmgo-firmware-image-1763954642761](https://assets.openterface.com/images/post/kvmgo-firmware/image-1763954642761.webp)
+
+[post-kvmgo-firmware-image-1763954858836](https://assets.openterface.com/images/post/kvmgo-firmware/image-1763954858836.webp)
+
+[post-kvmgo-firmware-image-1763955070638](https://assets.openterface.com/images/post/kvmgo-firmware/image-1763955070638.webp)
+
+[post-kvmgo-firmware-image-1763955617253](https://assets.openterface.com/images/post/kvmgo-firmware/image-1763955617253.webp)
+
+[post-kvmgo-firmware-image-1763955858115](https://assets.openterface.com/images/post/kvmgo-firmware/image-1763955858115.webp)
+
+[post-kvmgo-firmware-image-1763956095046](https://assets.openterface.com/images/post/kvmgo-firmware/image-1763956095046.webp)
+
+[post-kvmgo-firmware-image-1763982667349](https://assets.openterface.com/images/post/kvmgo-firmware/image-1763982667349.webp)
 
 [product-android_plus_pen](https://assets.openterface.com/images/product/android_plus_pen.webp)
 
@@ -395,6 +409,14 @@ Copy and paste these links into your markdown files:
 [qt-preferenceTargetControl](https://assets.openterface.com/images/qt/preferenceTargetControl.webp)
 
 [qt-preferenceVideo](https://assets.openterface.com/images/qt/preferenceVideo.webp)
+
+[software-MacOS_FactoryResetHID](https://assets.openterface.com/images/software/MacOS_FactoryResetHID.webp)
+
+[software-OpenterfaceQT_FactoryResetHID](https://assets.openterface.com/images/software/OpenterfaceQT_FactoryResetHID.webp)
+
+[software-inactive_keyboardmoue_macos](https://assets.openterface.com/images/software/inactive_keyboardmoue_macos.webp)
+
+[software-inactive_keyboardmoue_windows](https://assets.openterface.com/images/software/inactive_keyboardmoue_windows.webp)
 
 [txa-avatar](https://assets.openterface.com/images/txa-avatar.webp)
 
