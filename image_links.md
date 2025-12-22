@@ -36,6 +36,8 @@ Copy and paste these links into your markdown files:
 
 [blog-Casey-iPad-KVM-chat](https://assets.openterface.com/images/blog/Casey-iPad-KVM-chat.webp)
 
+[blog-Gemini_Generated_Image_kvm-go](https://assets.openterface.com/images/blog/Gemini_Generated_Image_kvm-go.webp)
+
 [blog-Kashall-app-in-action](https://assets.openterface.com/images/blog/Kashall-app-in-action.webp)
 
 [blog-Kashall-app-ui](https://assets.openterface.com/images/blog/Kashall-app-ui.webp)
@@ -43,6 +45,8 @@ Copy and paste these links into your markdown files:
 [blog-Veera-audio-bridge-chat-with-veera](https://assets.openterface.com/images/blog/Veera-audio-bridge-chat-with-veera.webp)
 
 [cover-Gibby-with-Christmas-hat](https://assets.openterface.com/images/cover-Gibby-with-Christmas-hat.webp)
+
+[cover-Gibby-with-Christmas-hat_resized](https://assets.openterface.com/images/cover-Gibby-with-Christmas-hat_resized.webp)
 
 [cover](https://assets.openterface.com/images/cover.webp)
 
