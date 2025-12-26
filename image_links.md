@@ -44,6 +44,20 @@ Copy and paste these links into your markdown files:
 
 [blog-Veera-audio-bridge-chat-with-veera](https://assets.openterface.com/images/blog/Veera-audio-bridge-chat-with-veera.webp)
 
+[cover-kvm-go-triple-2](https://assets.openterface.com/images/cover/kvm-go-triple-2.webp)
+
+[cover-kvm-go-triple](https://assets.openterface.com/images/cover/kvm-go-triple.webp)
+
+[cover-mini-kvm-c1](https://assets.openterface.com/images/cover/mini-kvm-c1.webp)
+
+[cover-mini-kvm-toolkit](https://assets.openterface.com/images/cover/mini-kvm-toolkit.webp)
+
+[cover-mini-kvm](https://assets.openterface.com/images/cover/mini-kvm.webp)
+
+[cover-op-uconsole-ext-c1](https://assets.openterface.com/images/cover/op-uconsole-ext-c1.webp)
+
+[cover-uconsole](https://assets.openterface.com/images/cover/uconsole.webp)
+
 [cover-Gibby-with-Christmas-hat](https://assets.openterface.com/images/cover-Gibby-with-Christmas-hat.webp)
 
 [cover-Gibby-with-Christmas-hat_resized](https://assets.openterface.com/images/cover-Gibby-with-Christmas-hat_resized.webp)
