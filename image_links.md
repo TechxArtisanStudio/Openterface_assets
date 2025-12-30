@@ -28,6 +28,8 @@ Copy and paste these links into your markdown files:
 
 [android-videoConnect](https://assets.openterface.com/images/android/videoConnect.webp)
 
+[app-logo](https://assets.openterface.com/images/app-logo.webp)
+
 [appstore-GetItOnGooglePlay_Badge_Web_color_English](https://assets.openterface.com/images/appstore/GetItOnGooglePlay_Badge_Web_color_English.webp)
 
 [appstore-GetItOn_flathub](https://assets.openterface.com/images/appstore/GetItOn_flathub.webp)
@@ -43,6 +45,8 @@ Copy and paste these links into your markdown files:
 [blog-Kashall-app-ui](https://assets.openterface.com/images/blog/Kashall-app-ui.webp)
 
 [blog-Veera-audio-bridge-chat-with-veera](https://assets.openterface.com/images/blog/Veera-audio-bridge-chat-with-veera.webp)
+
+[blog-founders-note-final-hours](https://assets.openterface.com/images/blog/founders-note-final-hours.webp)
 
 [cover-kvm-go-triple-2](https://assets.openterface.com/images/cover/kvm-go-triple-2.webp)
 
@@ -487,6 +491,10 @@ Copy and paste these links into your markdown files:
 [openterface](https://assets.openterface.com/images/openterface.svg)
 
 [openterface_w](https://assets.openterface.com/images/openterface_w.svg)
+
+[product-accessories-vga-to-hdmi-cable-vga2hdmi-connect-dark](https://assets.openterface.com/images/product/accessories/vga-to-hdmi-cable/vga2hdmi-connect-dark.svg)
+
+[product-accessories-vga-to-hdmi-cable-vga2hdmi-connect-light](https://assets.openterface.com/images/product/accessories/vga-to-hdmi-cable/vga2hdmi-connect-light.svg)
 
 [product-change-cap](https://assets.openterface.com/images/product/change-cap.svg)
 
