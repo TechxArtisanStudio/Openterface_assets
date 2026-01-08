@@ -5,12 +5,15 @@ echo "Creating necessary directories..."
 mkdir -p dist/css
 mkdir -p dist/js
 mkdir -p dist/images
+mkdir -p dist/data
 mkdir -p dist/openterface/firmware
 cp src/CNAME dist/CNAME
 
 # Copy all images and firmware to dist/images while preserving folder structure
 echo "Copying images to dist/images..."
 rsync -a src/images/ dist/images/
+echo "Copying data to dist/data..."
+rsync -a src/data/ dist/data/
 echo "Copying firmware to dist/openterface/firmware..."
 rsync -a src/openterface/firmware/ dist/openterface/firmware/
 echo "Images copied successfully."
