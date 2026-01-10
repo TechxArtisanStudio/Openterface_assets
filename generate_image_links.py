@@ -11,7 +11,7 @@ from pathlib import Path
 
 def find_image_files(directory):
     """Find all image files that would be converted to WebP."""
-    image_extensions = {'.png', '.jpg', '.jpeg', '.webp'}
+    image_extensions = {'.png', '.jpg', '.jpeg', '.webp', '.gif'}
     svg_extensions = {'.svg'}
     image_files = []
     svg_files = []
