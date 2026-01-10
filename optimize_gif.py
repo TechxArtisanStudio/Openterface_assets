@@ -209,18 +209,40 @@ def compare_gifs(gif1_path, gif2_path):
             return "N/A"
         if diff == "∞":
             return "+∞"
-        sign = "+" if diff >= 0 else ""
-        return f"{sign}{diff:.1f}%"
+        if isinstance(diff, (int, float)):
+            if diff > 0:
+                return f"+{diff:.1f}%"
+            elif diff < 0:
+                return f"{diff:.1f}%"
+            else:
+                return "0%"
+        return str(diff)
+    
+    def format_diff_descriptive(val1, val2):
+        """Format difference with descriptive text for better clarity."""
+        diff = calc_percent_diff(val1, val2)
+        if diff == "N/A":
+            return "N/A"
+        if diff == "∞":
+            return "+∞"
+        if isinstance(diff, (int, float)):
+            if abs(diff) < 0.1:  # Essentially the same
+                return "Same"
+            elif diff > 0:
+                return f"+{diff:.1f}% (larger)"
+            else:
+                return f"{abs(diff):.1f}% (smaller)"
+        return str(diff)
     
     # Print comparison table
-    print("\n" + "-" * 70)
-    print(f"{'Property':<20} {'GIF 1':<20} {'GIF 2':<20} {'Difference':<10}")
-    print("-" * 70)
+    print("\n" + "-" * 90)
+    print(f"{'Property':<20} {'GIF 1':<20} {'GIF 2':<20} {'Difference':<25}")
+    print("-" * 90)
     
     # File size
-    diff_size = format_diff(size1, size2)
-    print(f"{'File Size (MB)':<20} {size1:<20.2f} {size2:<20.2f} {diff_size:<10}")
-    print(f"{'File Size (bytes)':<20} {size1_bytes:<20,} {size2_bytes:<20,} {format_diff(size1_bytes, size2_bytes):<10}")
+    diff_size = format_diff_descriptive(size1, size2)
+    print(f"{'File Size (MB)':<20} {size1:<20.2f} {size2:<20.2f} {diff_size:<25}")
+    print(f"{'File Size (bytes)':<20} {size1_bytes:<20,} {size2_bytes:<20,} {format_diff_descriptive(size1_bytes, size2_bytes):<25}")
     
     # Dimensions
     dim1 = f"{gif1_info['width']} × {gif1_info['height']}"
@@ -238,32 +260,53 @@ def compare_gifs(gif1_path, gif2_path):
     # Duration
     dur1 = gif1_info['duration']
     dur2 = gif2_info['duration']
-    dur_diff = format_diff(dur1, dur2)
-    print(f"{'Duration (sec)':<20} {dur1:<20.2f} {dur2:<20.2f} {dur_diff:<10}")
+    dur_diff_pct = calc_percent_diff(dur1, dur2)
+    if isinstance(dur_diff_pct, (int, float)):
+        if abs(dur_diff_pct) < 0.1:
+            dur_diff = "Same"
+        elif dur_diff_pct > 0:
+            dur_diff = f"+{dur_diff_pct:.1f}% (longer)"
+        else:
+            dur_diff = f"{abs(dur_diff_pct):.1f}% (shorter)"
+    else:
+        dur_diff = str(dur_diff_pct)
+    print(f"{'Duration (sec)':<20} {dur1:<20.2f} {dur2:<20.2f} {dur_diff:<25}")
     
     # FPS
     fps1 = gif1_info['fps']
     fps2 = gif2_info['fps']
     fps_diff = fps2 - fps1
-    fps_diff_str = f"{fps_diff:+.2f}" if fps_diff != 0 else "0.00"
-    print(f"{'FPS':<20} {fps1:<20.2f} {fps2:<20.2f} {fps_diff_str:<10}")
+    if abs(fps_diff) < 0.01:
+        fps_diff_str = "Same"
+    elif fps_diff > 0:
+        fps_diff_str = f"+{fps_diff:.2f} (higher)"
+    else:
+        fps_diff_str = f"{fps_diff:.2f} (lower)"
+    print(f"{'FPS':<20} {fps1:<20.2f} {fps2:<20.2f} {fps_diff_str:<25}")
     
     # Colors
     colors1 = gif1_info['colors']
     colors2 = gif2_info['colors']
     colors_diff = colors2 - colors1
-    colors_diff_str = f"{colors_diff:+d}" if colors_diff != 0 else "0"
-    print(f"{'Colors (max)':<20} {colors1:<20} {colors2:<20} {colors_diff_str:<10}")
+    if colors_diff == 0:
+        colors_diff_str = "Same"
+    elif colors_diff > 0:
+        colors_diff_str = f"+{colors_diff} (more)"
+    else:
+        colors_diff_str = f"{colors_diff} (fewer)"
+    print(f"{'Colors (max)':<20} {colors1:<20} {colors2:<20} {colors_diff_str:<25}")
     
-    print("-" * 70)
+    print("-" * 90)
     
     # Summary
     size_saved = size1 - size2
     size_saved_pct = calc_percent_diff(size1, size2)
     if isinstance(size_saved_pct, (int, float)):
-        if size_saved_pct > 0:
+        if size_saved_pct < 0:
+            # Negative means size2 < size1, so GIF 2 is smaller
             print(f"\n✅ GIF 2 is {abs(size_saved_pct):.1f}% smaller ({abs(size_saved):.2f} MB saved)")
-        elif size_saved_pct < 0:
+        elif size_saved_pct > 0:
+            # Positive means size2 > size1, so GIF 2 is larger
             print(f"\n⚠️  GIF 2 is {abs(size_saved_pct):.1f}% larger ({abs(size_saved):.2f} MB more)")
         else:
             print(f"\n📊 Both GIFs have the same file size")
@@ -343,6 +386,10 @@ def split_gif(input_gif, split_points, gif_info, output_dir, input_name, input_e
             # Build optimization command
             opt_cmd = ["magick", temp_file]
             
+            # Coalesce frames first if we need to modify delays (for FPS adjustment)
+            if fps:
+                opt_cmd += ["-coalesce"]
+            
             # Add resize if specified
             if width:
                 opt_cmd += ["-resize", f"{width}x"]
@@ -350,7 +397,8 @@ def split_gif(input_gif, split_points, gif_info, output_dir, input_name, input_e
             # Add FPS adjustment if specified
             if fps:
                 delay = int(100 / fps)
-                opt_cmd += ["-delay", str(delay)]
+                # Use -set delay to set delay for ALL frames
+                opt_cmd += ["-set", "delay", str(delay)]
             
             # Add color reduction if specified
             if colors:
@@ -717,12 +765,18 @@ if frame_range:
 
 cmd = ["magick", working_gif]
 
+# Coalesce frames first if we need to modify delays (for FPS adjustment)
+# This ensures all frames are properly separated before setting delays
+if fps_value:
+    cmd += ["-coalesce"]
+
 if width_value:
     cmd += ["-resize", f"{width_value}x"]
 
 if fps_value:
     delay = int(100 / fps_value)  # GIF delay = 100 / fps
-    cmd += ["-delay", str(delay)]
+    # Use -set delay to set delay for ALL frames (not just subsequent ones)
+    cmd += ["-set", "delay", str(delay)]
 
 if colors_value:
     cmd += ["-colors", str(colors_value)]
@@ -761,3 +815,7 @@ print("✅ Done!\n")
 print(f"📦 New size: {new_size:.2f} MB")
 print(f"💾 Saved: {saved:.2f} MB ({percent:.1f}%)")
 print(f"📁 Output: {output_gif}\n")
+
+# Automatically compare original and output
+if os.path.exists(output_gif):
+    compare_gifs(input_gif, output_gif)
