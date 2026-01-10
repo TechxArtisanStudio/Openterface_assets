@@ -511,17 +511,22 @@ if gif_info:
                     try:
                         split_frames = [int(p) for p in split_frames_str if p]
                         # Convert frame numbers to time points for consistency
+                        # Use START of frame (matching single frame behavior)
                         if gif_info.get('delays'):
+                            # Build array of frame start times
+                            # frame_start_times[i] = time when frame i starts
+                            frame_start_times = [0.0]  # Frame 0 starts at 0
                             cumulative = 0.0
-                            frame_times = []
-                            for delay in gif_info['delays']:
+                            # Calculate start time for each subsequent frame
+                            # Frame i starts after all previous frames' delays
+                            for delay in gif_info['delays'][:-1]:  # All but last delay
                                 cumulative += delay / 100.0
-                                frame_times.append(cumulative)
+                                frame_start_times.append(cumulative)
                             
                             split_points = []
                             for frame_num in split_frames:
-                                if 0 <= frame_num < len(frame_times):
-                                    split_points.append(frame_times[frame_num])
+                                if 0 <= frame_num < len(frame_start_times):
+                                    split_points.append(frame_start_times[frame_num])
                                 else:
                                     print(f"⚠️  Warning: Frame {frame_num} is out of range. Skipping.")
                             
