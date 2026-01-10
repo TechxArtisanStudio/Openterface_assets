@@ -269,6 +269,114 @@ def compare_gifs(gif1_path, gif2_path):
             print(f"\n📊 Both GIFs have the same file size")
     print()
 
+def split_gif(input_gif, split_points, gif_info, output_dir, input_name, input_ext, width=None, fps=None, colors=None):
+    """
+    Split a GIF at specified time points, creating multiple output files.
+    
+    Args:
+        input_gif: Path to input GIF file
+        split_points: List of time points (in seconds) to split at
+        gif_info: GIF information dictionary
+        output_dir: Directory to save output files
+        input_name: Base name for output files (without extension)
+        input_ext: File extension (e.g., '.gif')
+        width: Optional target width for optimization
+        fps: Optional target FPS for optimization
+        colors: Optional number of colors for optimization
+    
+    Returns:
+        List of output file paths
+    """
+    if not split_points:
+        return []
+    
+    # Sort and validate split points
+    split_points = sorted([float(p) for p in split_points])
+    total_duration = gif_info['duration']
+    delays = gif_info.get('delays', [])
+    
+    # Filter out invalid points and add boundaries
+    valid_points = [0.0]
+    for point in split_points:
+        if 0 < point < total_duration:
+            valid_points.append(point)
+    valid_points.append(total_duration)
+    
+    # Remove duplicates
+    valid_points = sorted(list(set(valid_points)))
+    
+    if len(valid_points) < 2:
+        print("⚠️  Warning: No valid split points. Keeping original GIF.")
+        return []
+    
+    output_files = []
+    print(f"\n✂️  Splitting GIF into {len(valid_points) - 1} segments...")
+    
+    for i in range(len(valid_points) - 1):
+        start_time = valid_points[i]
+        end_time = valid_points[i + 1]
+        
+        # Convert time range to frame range
+        frame_range = time_range_to_frames(start_time, end_time, delays, total_duration)
+        if not frame_range:
+            print(f"⚠️  Warning: Could not extract segment {i+1} ({start_time:.2f}-{end_time:.2f}s). Skipping.")
+            continue
+        
+        start_frame, end_frame = frame_range
+        
+        # Generate output filename
+        output_filename = f"{input_name}_part{i+1}{input_ext}"
+        output_path = os.path.join(output_dir, output_filename)
+        
+        # Extract frames using ImageMagick
+        extract_cmd = ["magick", f"{input_gif}[{start_frame}-{end_frame}]"]
+        
+        # Extract frames first to a temp file
+        temp_fd, temp_file = tempfile.mkstemp(suffix='.gif', prefix='gif_split_')
+        os.close(temp_fd)
+        
+        try:
+            # Extract frames
+            extract_cmd.append(temp_file)
+            run(extract_cmd)
+            
+            # Build optimization command
+            opt_cmd = ["magick", temp_file]
+            
+            # Add resize if specified
+            if width:
+                opt_cmd += ["-resize", f"{width}x"]
+            
+            # Add FPS adjustment if specified
+            if fps:
+                delay = int(100 / fps)
+                opt_cmd += ["-delay", str(delay)]
+            
+            # Add color reduction if specified
+            if colors:
+                opt_cmd += ["-colors", str(colors)]
+            
+            # Add optimization and output
+            opt_cmd += ["-layers", "Optimize", output_path]
+            
+            # Run optimization
+            run(opt_cmd)
+            
+            # Clean up temp file
+            if os.path.exists(temp_file):
+                os.remove(temp_file)
+        except Exception as e:
+            if os.path.exists(temp_file):
+                os.remove(temp_file)
+            print(f"⚠️  Warning: Failed to process segment {i+1}: {e}")
+            continue
+        
+        output_files.append(output_path)
+        segment_duration = end_time - start_time
+        print(f"   ✓ Created segment {i+1}: {output_filename} ({start_time:.2f}-{end_time:.2f}s, {segment_duration:.2f}s)")
+    
+    return output_files
+
 # Check for help flag
 if len(sys.argv) > 1 and sys.argv[1] in ['--help', '-h', 'help']:
     print("\n🎞️ GIF Size Optimizer")
@@ -370,20 +478,21 @@ print(f"\n📁 Output will be saved to: {output_gif}")
 # ---- Interactive options ----
 # Trimming selection: frame-based or time-based
 frame_range = None
+split_points = None  # For split mode (time-based or frame-based)
 if gif_info:
     trim_method = input("\n✂️  Trim by time or frames? (t/f, Enter to skip trimming): ").strip().lower()
     
     if trim_method in ['f', 'frames']:
-        # Frame-based trimming
-        frame_range_input = input("   Frame range to keep (e.g., 10-50 or 10, Enter to keep all): ").strip()
+        # Frame-based trimming or splitting
+        frame_range_input = input("   Frame range to keep (e.g., 10-50 for trim, 10 or 10,50 for split, Enter to keep all): ").strip()
         if frame_range_input:
             frame_range_input = frame_range_input.strip()
             try:
                 if '-' in frame_range_input:
-                    # Format: "start-end"
+                    # Format: "start-end" → TRIM mode (keep only this range)
                     parts = frame_range_input.split('-')
                     if len(parts) != 2:
-                        print("⚠️  Warning: Invalid frame range format. Use 'start-end' or 'start'. Keeping all frames.")
+                        print("⚠️  Warning: Invalid frame range format. Use 'start-end' for trim, or comma-separated for split. Keeping all frames.")
                     else:
                         start = int(parts[0].strip())
                         end = int(parts[1].strip())
@@ -396,31 +505,67 @@ if gif_info:
                                 selected_delays = gif_info['delays'][start:end+1]
                                 time_range = sum(selected_delays) / 100.0
                                 print(f"   ✓ Will keep frames {start}-{end} (~{time_range:.2f} seconds)")
-                else:
-                    # Format: "start" (keep from start to end)
-                    start = int(frame_range_input.strip())
-                    if start < 0 or start >= gif_info['frames']:
-                        print(f"⚠️  Warning: Start frame {start} is invalid (valid range: 0-{gif_info['frames'] - 1}). Keeping all frames.")
-                    else:
-                        frame_range = (start, gif_info['frames'] - 1)
+                elif ',' in frame_range_input:
+                    # Format: "10, 50" → SPLIT mode (split at these frames)
+                    split_frames_str = [p.strip() for p in frame_range_input.split(',')]
+                    try:
+                        split_frames = [int(p) for p in split_frames_str if p]
+                        # Convert frame numbers to time points for consistency
                         if gif_info.get('delays'):
-                            selected_delays = gif_info['delays'][start:]
-                            time_range = sum(selected_delays) / 100.0
-                            print(f"   ✓ Will keep frames {start}-{gif_info['frames'] - 1} (~{time_range:.2f} seconds)")
+                            cumulative = 0.0
+                            frame_times = []
+                            for delay in gif_info['delays']:
+                                cumulative += delay / 100.0
+                                frame_times.append(cumulative)
+                            
+                            split_points = []
+                            for frame_num in split_frames:
+                                if 0 <= frame_num < len(frame_times):
+                                    split_points.append(frame_times[frame_num])
+                                else:
+                                    print(f"⚠️  Warning: Frame {frame_num} is out of range. Skipping.")
+                            
+                            if split_points:
+                                frame_range = None  # Signal split mode
+                                print(f"   ✓ Will split at frames: {', '.join([str(f) for f in split_frames])} ({', '.join([f'{t:.2f}s' for t in split_points])})")
+                            else:
+                                print("⚠️  Warning: No valid split frames. Keeping all frames.")
+                        else:
+                            print("⚠️  Warning: Cannot convert frames to time. Keeping all frames.")
+                    except ValueError:
+                        print("⚠️  Warning: Invalid split frames format. Use numbers like '10, 50'. Keeping all frames.")
+                else:
+                    # Format: "10" → SPLIT mode (split at this frame)
+                    split_frame = int(frame_range_input.strip())
+                    if split_frame < 0 or split_frame >= gif_info['frames']:
+                        print(f"⚠️  Warning: Split frame {split_frame} is invalid (valid range: 0-{gif_info['frames'] - 1}). Keeping all frames.")
+                    else:
+                        # Convert frame number to time point
+                        if gif_info.get('delays'):
+                            cumulative = 0.0
+                            for i, delay in enumerate(gif_info['delays']):
+                                if i == split_frame:
+                                    split_points = [cumulative]
+                                    frame_range = None  # Signal split mode
+                                    print(f"   ✓ Will split at frame {split_frame} (~{cumulative:.2f}s)")
+                                    break
+                                cumulative += delay / 100.0
+                        else:
+                            print("⚠️  Warning: Cannot convert frame to time. Keeping all frames.")
             except ValueError:
-                print("⚠️  Warning: Invalid frame range format. Use numbers like '10-50' or '10'. Keeping all frames.")
+                print("⚠️  Warning: Invalid frame format. Use numbers like '10-50' for trim, or '10' or '10,50' for split. Keeping all frames.")
     
     elif trim_method in ['t', 'time']:
-        # Time-based trimming
-        time_range_input = input("   Time range to keep in seconds (e.g., 2.5-5.0 or 2.5, Enter to keep all): ").strip()
+        # Time-based trimming or splitting
+        time_range_input = input("   Time range to keep in seconds (e.g., 2.5-5.0 for trim, 2.5 or 2.5,5.5 for split, Enter to keep all): ").strip()
         if time_range_input:
             time_range_input = time_range_input.strip()
             try:
                 if '-' in time_range_input:
-                    # Format: "start-end"
+                    # Format: "start-end" → TRIM mode (keep only this range)
                     parts = time_range_input.split('-')
                     if len(parts) != 2:
-                        print("⚠️  Warning: Invalid time range format. Use 'start-end' or 'start'. Keeping all frames.")
+                        print("⚠️  Warning: Invalid time range format. Use 'start-end' for trim, or comma-separated for split. Keeping all frames.")
                     else:
                         start_time = float(parts[0].strip())
                         end_time = float(parts[1].strip())
@@ -439,26 +584,28 @@ if gif_info:
                                 print(f"   ✓ Will keep frames {start_frame}-{end_frame} (time: {start_time:.2f}-{end_time:.2f} seconds)")
                             else:
                                 print("⚠️  Warning: Could not convert time range to frames. Keeping all frames.")
+                elif ',' in time_range_input:
+                    # Format: "2.5, 5.5" → SPLIT mode (split at these points)
+                    split_points_str = [p.strip() for p in time_range_input.split(',')]
+                    try:
+                        split_points = [float(p) for p in split_points_str if p]
+                        frame_range = None  # Signal split mode
+                        print(f"   ✓ Will split at: {', '.join([f'{p:.2f}s' for p in split_points])}")
+                    except ValueError:
+                        print("⚠️  Warning: Invalid split points format. Use numbers like '2.5, 5.5'. Keeping all frames.")
+                        split_points = None
                 else:
-                    # Format: "start" (keep from start to end)
-                    start_time = float(time_range_input.strip())
-                    if start_time < 0 or start_time >= gif_info['duration']:
-                        print(f"⚠️  Warning: Start time {start_time} is invalid (valid range: 0-{gif_info['duration']:.2f} seconds). Keeping all frames.")
+                    # Format: "2.5" → SPLIT mode (split at this point)
+                    split_point = float(time_range_input.strip())
+                    if split_point < 0 or split_point >= gif_info['duration']:
+                        print(f"⚠️  Warning: Split point {split_point} is invalid (valid range: 0-{gif_info['duration']:.2f} seconds). Keeping all frames.")
                     else:
-                        # Convert time range to frame range (from start_time to end)
-                        frame_range = time_range_to_frames(
-                            start_time, 
-                            None,  # None means to end of GIF
-                            gif_info.get('delays', []), 
-                            gif_info['duration']
-                        )
-                        if frame_range:
-                            start_frame, end_frame = frame_range
-                            print(f"   ✓ Will keep frames {start_frame}-{end_frame} (time: {start_time:.2f}-{gif_info['duration']:.2f} seconds)")
-                        else:
-                            print("⚠️  Warning: Could not convert time range to frames. Keeping all frames.")
+                        split_points = [split_point]
+                        frame_range = None  # Signal split mode
+                        print(f"   ✓ Will split at: {split_point:.2f}s")
             except ValueError:
-                print("⚠️  Warning: Invalid time range format. Use numbers like '2.5-5.0' or '2.5'. Keeping all frames.")
+                print("⚠️  Warning: Invalid time format. Use numbers like '2.5-5.0' for trim, or '2.5' or '2.5,5.5' for split. Keeping all frames.")
+                split_points = None
     
     elif trim_method == '':
         # User chose to skip trimming
@@ -471,6 +618,69 @@ else:
 width = input("\n🔧 Target width in px (Enter to keep original): ").strip()
 fps = input("⏱️ Target FPS (recommended 8–12, Enter to skip): ").strip()
 colors = input("🎨 Number of colors (32/64/128, Enter to keep): ").strip()
+
+# Parse optimization parameters
+width_value = None
+if width:
+    try:
+        width_value = int(width)
+        if width_value <= 0:
+            print("⚠️  Warning: Width must be positive. Skipping resize.")
+            width_value = None
+    except ValueError:
+        print("⚠️  Warning: Invalid width value. Skipping resize.")
+
+fps_value = None
+if fps:
+    try:
+        fps_value = int(fps)
+        if fps_value <= 0:
+            print("⚠️  Warning: FPS must be positive. Skipping FPS adjustment.")
+            fps_value = None
+    except ValueError:
+        print("⚠️  Warning: Invalid FPS value. Skipping FPS adjustment.")
+
+colors_value = None
+if colors:
+    try:
+        colors_value = int(colors)
+        if colors_value <= 0:
+            print("⚠️  Warning: Number of colors must be positive. Skipping color reduction.")
+            colors_value = None
+    except ValueError:
+        print("⚠️  Warning: Invalid colors value. Skipping color reduction.")
+
+# Check if we're in split mode
+if split_points and gif_info:
+    # Split mode: create multiple output files
+    print("\n⚙️ Processing split segments...\n")
+    output_files = split_gif(
+        input_gif,
+        split_points,
+        gif_info,
+        input_dir,
+        input_name,
+        input_ext,
+        width_value,
+        fps_value,
+        colors_value
+    )
+    
+    if output_files:
+        print("\n✅ Done!\n")
+        print(f"📁 Created {len(output_files)} segment(s):")
+        total_size = 0
+        for i, output_file in enumerate(output_files, 1):
+            size = filesize_mb(output_file)
+            total_size += size
+            print(f"   {i}. {os.path.basename(output_file)} ({size:.2f} MB)")
+        print(f"\n📦 Total size: {total_size:.2f} MB")
+        saved = orig_size - total_size
+        percent = (saved / orig_size) * 100 if orig_size else 0
+        print(f"💾 Saved: {saved:.2f} MB ({percent:.1f}%) compared to original\n")
+    else:
+        print("⚠️  No segments were created.\n")
+    sys.exit(0)
 
 # Build ImageMagick command
 # If frame range is specified, we need to extract frames first
@@ -502,36 +712,15 @@ if frame_range:
 
 cmd = ["magick", working_gif]
 
-if width:
-    try:
-        width_value = int(width)
-        if width_value <= 0:
-            print("⚠️  Warning: Width must be positive. Skipping resize.")
-        else:
-            cmd += ["-resize", f"{width_value}x"]
-    except ValueError:
-        print("⚠️  Warning: Invalid width value. Skipping resize.")
+if width_value:
+    cmd += ["-resize", f"{width_value}x"]
 
-if fps:
-    try:
-        fps_value = int(fps)
-        if fps_value <= 0:
-            print("⚠️  Warning: FPS must be positive. Skipping FPS adjustment.")
-        else:
-            delay = int(100 / fps_value)  # GIF delay = 100 / fps
-            cmd += ["-delay", str(delay)]
-    except ValueError:
-        print("⚠️  Warning: Invalid FPS value. Skipping FPS adjustment.")
+if fps_value:
+    delay = int(100 / fps_value)  # GIF delay = 100 / fps
+    cmd += ["-delay", str(delay)]
 
-if colors:
-    try:
-        colors_value = int(colors)
-        if colors_value <= 0:
-            print("⚠️  Warning: Number of colors must be positive. Skipping color reduction.")
-        else:
-            cmd += ["-colors", str(colors_value)]
-    except ValueError:
-        print("⚠️  Warning: Invalid colors value. Skipping color reduction.")
+if colors_value:
+    cmd += ["-colors", str(colors_value)]
 
 cmd += ["-layers", "Optimize", output_gif]
 
