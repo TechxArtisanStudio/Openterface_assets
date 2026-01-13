@@ -171,9 +171,9 @@ def handle_image_resize_menu(image_path):
 
 def main():
     """Main interactive function."""
-    # Get the project root directory (parent of script location)
+    # Get the project root directory (parent of scripts/)
     script_dir = Path(__file__).parent
-    project_root = script_dir
+    project_root = script_dir.parent
     
     # Check if image path is provided as command-line argument
     if len(sys.argv) > 1:

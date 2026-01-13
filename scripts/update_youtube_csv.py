@@ -1126,9 +1126,10 @@ Examples:
     if args.csv_path:
         csv_path = Path(args.csv_path)
     else:
-        # Default to src/data/youtube.csv (relative to script directory)
+        # Default to src/data/youtube.csv (relative to project root)
         script_dir = Path(__file__).parent
-        csv_path = script_dir / "src" / "data" / "youtube.csv"
+        project_root = script_dir.parent
+        csv_path = project_root / "src" / "data" / "youtube.csv"
     
     # Determine proxy settings (priority: --proxy > --vpn > environment variables)
     proxy = args.proxy
