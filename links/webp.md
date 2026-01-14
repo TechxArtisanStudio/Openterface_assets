@@ -249,13 +249,19 @@ Copy and paste these links into your markdown files:
 
 [labels-target-side](https://assets.openterface.com/images/labels/target-side.webp)
 
-[minikvm-support-detect-devices](https://assets.openterface.com/images/minikvm/support/detect-devices.webp)
+[minikvm-support-host](https://assets.openterface.com/images/minikvm/support/host.webp)
 
-[minikvm-support-next-button](https://assets.openterface.com/images/minikvm/support/next-button.webp)
+[minikvm-support-overall_connection](https://assets.openterface.com/images/minikvm/support/overall_connection.webp)
 
-[minikvm-support-overall-connection](https://assets.openterface.com/images/minikvm/support/overall-connection.webp)
+[minikvm-support-send_defect_report_to_support](https://assets.openterface.com/images/minikvm/support/send_defect_report_to_support.webp)
 
-[minikvm-support-send-defect-report-to-support](https://assets.openterface.com/images/minikvm/support/send-defect-report-to-support.webp)
+[minikvm-support-support](https://assets.openterface.com/images/minikvm/support/support.webp)
+
+[minikvm-support-target](https://assets.openterface.com/images/minikvm/support/target.webp)
+
+[minikvm-support-target_plug_n_play](https://assets.openterface.com/images/minikvm/support/target_plug_n_play.webp)
+
+[minikvm-support-target_port_checking](https://assets.openterface.com/images/minikvm/support/target_port_checking.webp)
 
 [op-avatar](https://assets.openterface.com/images/op-avatar.webp)
 
