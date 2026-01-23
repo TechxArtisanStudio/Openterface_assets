@@ -25,7 +25,7 @@ Openterface_assets/
 │   └── openterface/       # Firmware files
 ├── dist/                  # Build output directory (generated)
 ├── scripts/               # Utility scripts
-│   ├── generate_image_links.py
+│   ├── generate_url.py
 │   ├── image_resizer.py
 │   ├── update_youtube_csv.py
 │   └── README_youtube_csv.md

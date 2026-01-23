@@ -79,6 +79,15 @@ FILE_TYPE_MAPPING = {
         'transform': lambda p: p,  # No transformation
         'output_file': 'firmware.md',
         'description': 'Firmware File Links'
+    },
+    'md': {
+        'extensions': ['.md'],
+        'src_dir': 'src/md',
+        'dist_dir': 'dist/md',
+        'url_path': 'md',
+        'transform': lambda p: p,  # No transformation
+        'output_file': 'md.md',
+        'description': 'Markdown File Links'
     }
 }
 
@@ -244,16 +253,16 @@ def main():
         epilog="""
 Examples:
   # Scan src/ and predict final URLs (default)
-  python scripts/generate_image_links.py
+  python scripts/generate_url.py
   
   # Scan dist/ to list actual built files
-  python scripts/generate_image_links.py --dist
+  python scripts/generate_url.py --dist
   
   # Custom base URL
-  python scripts/generate_image_links.py --base-url https://example.com
+  python scripts/generate_url.py --base-url https://example.com
   
   # Custom output directory (default is links/)
-  python scripts/generate_image_links.py --output-dir docs/links
+  python scripts/generate_url.py --output-dir docs/links
         """
     )
     parser.add_argument(
