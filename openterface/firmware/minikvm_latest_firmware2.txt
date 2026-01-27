@@ -1,2 +1,3 @@
-25022713,Openterface_Firmware_250306.bin
+25022713,Openterface_Firmware_250306.bin,2109
 25052210,Openterface_Firmware_2130s_250522.bin,2130s
+26011213,Openterface_Firmware_2109s.bin,2109s
