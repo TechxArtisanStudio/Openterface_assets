@@ -78,7 +78,16 @@ FILE_TYPE_MAPPING = {
         'url_path': 'openterface/firmware',
         'transform': lambda p: p,  # No transformation
         'output_file': 'firmware.md',
-        'description': 'Firmware File Links'
+        'description': 'Firmware File Links (openterface)'
+    },
+    'firmware_root': {
+        'extensions': ['.bin', '.txt'],
+        'src_dir': 'src/firmware',
+        'dist_dir': 'dist/firmware',
+        'url_path': 'firmware',
+        'transform': lambda p: p,  # No transformation
+        'output_file': 'firmware_root.md',
+        'description': 'Firmware File Links (root)'
     },
     'md': {
         'extensions': ['.md'],
@@ -96,7 +105,16 @@ FILE_TYPE_MAPPING = {
         'url_path': 'openterface/scripts',
         'transform': lambda p: p,  # No transformation
         'output_file': 'py.md',
-        'description': 'Python Script Links'
+        'description': 'Python Script Links (openterface)'
+    },
+    'scripts': {
+        'extensions': ['.py'],
+        'src_dir': 'src/scripts',
+        'dist_dir': 'dist/scripts',
+        'url_path': 'scripts',
+        'transform': lambda p: p,  # No transformation
+        'output_file': 'scripts.md',
+        'description': 'Python Script Links (root)'
     }
 }
 

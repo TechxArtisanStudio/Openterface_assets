@@ -1,4 +1,4 @@
-# Python Script Links
+# Python Script Links (openterface)
 
 Generated from source files in `src/openterface/scripts/`
 These URLs are predicted based on build transformations.

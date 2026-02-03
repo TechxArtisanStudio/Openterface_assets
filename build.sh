@@ -6,6 +6,8 @@ mkdir -p dist/css
 mkdir -p dist/js
 mkdir -p dist/images
 mkdir -p dist/data
+mkdir -p dist/firmware
+mkdir -p dist/scripts
 mkdir -p dist/openterface/firmware
 mkdir -p dist/openterface/scripts
 cp src/CNAME dist/CNAME
@@ -15,6 +17,10 @@ echo "Copying images to dist/images..."
 rsync -a src/images/ dist/images/
 echo "Copying data to dist/data..."
 rsync -a src/data/ dist/data/
+echo "Copying firmware to dist/firmware..."
+rsync -a src/firmware/ dist/firmware/
+echo "Copying scripts to dist/scripts..."
+rsync -a src/scripts/ dist/scripts/
 echo "Copying firmware to dist/openterface/firmware..."
 rsync -a src/openterface/firmware/ dist/openterface/firmware/
 echo "Copying scripts to dist/openterface/scripts..."
