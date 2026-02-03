@@ -88,6 +88,15 @@ FILE_TYPE_MAPPING = {
         'transform': lambda p: p,  # No transformation
         'output_file': 'md.md',
         'description': 'Markdown File Links'
+    },
+    'py': {
+        'extensions': ['.py'],
+        'src_dir': 'src/openterface/scripts',
+        'dist_dir': 'dist/openterface/scripts',
+        'url_path': 'openterface/scripts',
+        'transform': lambda p: p,  # No transformation
+        'output_file': 'py.md',
+        'description': 'Python Script Links'
     }
 }
 

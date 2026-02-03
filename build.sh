@@ -7,15 +7,18 @@ mkdir -p dist/js
 mkdir -p dist/images
 mkdir -p dist/data
 mkdir -p dist/openterface/firmware
+mkdir -p dist/openterface/scripts
 cp src/CNAME dist/CNAME
 
-# Copy all images and firmware to dist/images while preserving folder structure
+# Copy all images, firmware, and scripts to dist while preserving folder structure
 echo "Copying images to dist/images..."
 rsync -a src/images/ dist/images/
 echo "Copying data to dist/data..."
 rsync -a src/data/ dist/data/
 echo "Copying firmware to dist/openterface/firmware..."
 rsync -a src/openterface/firmware/ dist/openterface/firmware/
+echo "Copying scripts to dist/openterface/scripts..."
+rsync -a src/openterface/scripts/ dist/openterface/scripts/
 echo "Images copied successfully."
 
 # Generate a list of image files to convert to WebP

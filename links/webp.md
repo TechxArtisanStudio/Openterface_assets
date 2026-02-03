@@ -33,6 +33,14 @@ Copy and paste these links into your markdown files:
 
 [appstore-GetItOn_flathub](https://assets.openterface.com/images/appstore/GetItOn_flathub.webp)
 
+[blog-20260128-CH213K_InternalVoltage](https://assets.openterface.com/images/blog/20260128/CH213K_InternalVoltage.webp)
+
+[blog-20260128-Ch213K_Compare](https://assets.openterface.com/images/blog/20260128/Ch213K_Compare.webp)
+
+[blog-20260128-fixed_test](https://assets.openterface.com/images/blog/20260128/fixed_test.webp)
+
+[blog-20260128-qatool](https://assets.openterface.com/images/blog/20260128/qatool.webp)
+
 [blog-Casey-Setup-with-Pi-and-minikvm](https://assets.openterface.com/images/blog/Casey-Setup-with-Pi-and-minikvm.webp)
 
 [blog-Casey-iPad-KVM-chat](https://assets.openterface.com/images/blog/Casey-iPad-KVM-chat.webp)

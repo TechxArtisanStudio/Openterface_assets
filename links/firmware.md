@@ -7,6 +7,8 @@ Copy and paste these links into your markdown files:
 
 [Openterface_Firmware_2109s](https://assets.openterface.com/openterface/firmware/Openterface_Firmware_2109s.bin)
 
+[Openterface_Firmware_2109s_260112](https://assets.openterface.com/openterface/firmware/Openterface_Firmware_2109s_260112.bin)
+
 [Openterface_Firmware_2130s_250522](https://assets.openterface.com/openterface/firmware/Openterface_Firmware_2130s_250522.bin)
 
 [Openterface_Firmware_250306](https://assets.openterface.com/openterface/firmware/Openterface_Firmware_250306.bin)
