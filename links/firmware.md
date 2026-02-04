@@ -1,4 +1,4 @@
-# Firmware File Links
+# Firmware File Links (openterface)
 
 Generated from source files in `src/openterface/firmware/`
 These URLs are predicted based on build transformations.
