@@ -10,6 +10,7 @@ mkdir -p dist/firmware
 mkdir -p dist/scripts
 mkdir -p dist/openterface/firmware
 mkdir -p dist/openterface/scripts
+mkdir -p dist/minikvm
 cp src/CNAME dist/CNAME
 
 # Copy all images, firmware, and scripts to dist while preserving folder structure
@@ -25,6 +26,8 @@ echo "Copying firmware to dist/openterface/firmware..."
 rsync -a src/openterface/firmware/ dist/openterface/firmware/
 echo "Copying scripts to dist/openterface/scripts..."
 rsync -a src/openterface/scripts/ dist/openterface/scripts/
+echo "Copying minikvm to dist/minikvm..."
+rsync -a src/minikvm/ dist/minikvm/
 echo "Images copied successfully."
 
 # Generate a list of image files to convert to WebP
