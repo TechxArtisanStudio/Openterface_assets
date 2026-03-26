@@ -41,6 +41,18 @@ Copy and paste these links into your markdown files:
 
 [feature-icons-icon-usb-switch](https://assets.openterface.com/images/feature-icons/icon-usb-switch.svg)
 
+[logo-openterface-dark](https://assets.openterface.com/images/logo/openterface-dark.svg)
+
+[logo-openterface-ligth](https://assets.openterface.com/images/logo/openterface-ligth.svg)
+
+[logo-techxartisan-company-enzh-dark](https://assets.openterface.com/images/logo/techxartisan-company-enzh-dark.svg)
+
+[logo-techxartisan-company-enzh-light](https://assets.openterface.com/images/logo/techxartisan-company-enzh-light.svg)
+
+[logo-techxartisan-dark](https://assets.openterface.com/images/logo/techxartisan-dark.svg)
+
+[logo-techxartisan-light](https://assets.openterface.com/images/logo/techxartisan-light.svg)
+
 [logo_txa_b](https://assets.openterface.com/images/logo_txa_b.svg)
 
 [logo_txa_w](https://assets.openterface.com/images/logo_txa_w.svg)

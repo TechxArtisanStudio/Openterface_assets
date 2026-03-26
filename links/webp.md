@@ -267,6 +267,18 @@ Copy and paste these links into your markdown files:
 
 [labels-target-side](https://assets.openterface.com/images/labels/target-side.webp)
 
+[logo-openterface-dark](https://assets.openterface.com/images/logo/openterface-dark.webp)
+
+[logo-openterface-ligth](https://assets.openterface.com/images/logo/openterface-ligth.webp)
+
+[logo-techxartisan-company-enzh-dark](https://assets.openterface.com/images/logo/techxartisan-company-enzh-dark.webp)
+
+[logo-techxartisan-company-enzh-light](https://assets.openterface.com/images/logo/techxartisan-company-enzh-light.webp)
+
+[logo-techxartisan-dark](https://assets.openterface.com/images/logo/techxartisan-dark.webp)
+
+[logo-techxartisan-light](https://assets.openterface.com/images/logo/techxartisan-light.webp)
+
 [minikvm-support-host](https://assets.openterface.com/images/minikvm/support/host.webp)
 
 [minikvm-support-overall_connection](https://assets.openterface.com/images/minikvm/support/overall_connection.webp)
