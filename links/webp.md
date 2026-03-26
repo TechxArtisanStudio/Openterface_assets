@@ -267,15 +267,27 @@ Copy and paste these links into your markdown files:
 
 [labels-target-side](https://assets.openterface.com/images/labels/target-side.webp)
 
+[logo-openterface-dark-np](https://assets.openterface.com/images/logo/openterface-dark-np.webp)
+
 [logo-openterface-dark](https://assets.openterface.com/images/logo/openterface-dark.webp)
+
+[logo-openterface-ligth-np](https://assets.openterface.com/images/logo/openterface-ligth-np.webp)
 
 [logo-openterface-ligth](https://assets.openterface.com/images/logo/openterface-ligth.webp)
 
+[logo-techxartisan-company-enzh-dark-np](https://assets.openterface.com/images/logo/techxartisan-company-enzh-dark-np.webp)
+
 [logo-techxartisan-company-enzh-dark](https://assets.openterface.com/images/logo/techxartisan-company-enzh-dark.webp)
+
+[logo-techxartisan-company-enzh-light-np](https://assets.openterface.com/images/logo/techxartisan-company-enzh-light-np.webp)
 
 [logo-techxartisan-company-enzh-light](https://assets.openterface.com/images/logo/techxartisan-company-enzh-light.webp)
 
+[logo-techxartisan-dark-np](https://assets.openterface.com/images/logo/techxartisan-dark-np.webp)
+
 [logo-techxartisan-dark](https://assets.openterface.com/images/logo/techxartisan-dark.webp)
+
+[logo-techxartisan-light-np](https://assets.openterface.com/images/logo/techxartisan-light-np.webp)
 
 [logo-techxartisan-light](https://assets.openterface.com/images/logo/techxartisan-light.webp)
 

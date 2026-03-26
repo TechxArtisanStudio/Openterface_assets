@@ -41,15 +41,27 @@ Copy and paste these links into your markdown files:
 
 [feature-icons-icon-usb-switch](https://assets.openterface.com/images/feature-icons/icon-usb-switch.svg)
 
+[logo-openterface-dark-np](https://assets.openterface.com/images/logo/openterface-dark-np.svg)
+
 [logo-openterface-dark](https://assets.openterface.com/images/logo/openterface-dark.svg)
+
+[logo-openterface-ligth-np](https://assets.openterface.com/images/logo/openterface-ligth-np.svg)
 
 [logo-openterface-ligth](https://assets.openterface.com/images/logo/openterface-ligth.svg)
 
+[logo-techxartisan-company-enzh-dark-np](https://assets.openterface.com/images/logo/techxartisan-company-enzh-dark-np.svg)
+
 [logo-techxartisan-company-enzh-dark](https://assets.openterface.com/images/logo/techxartisan-company-enzh-dark.svg)
+
+[logo-techxartisan-company-enzh-light-np](https://assets.openterface.com/images/logo/techxartisan-company-enzh-light-np.svg)
 
 [logo-techxartisan-company-enzh-light](https://assets.openterface.com/images/logo/techxartisan-company-enzh-light.svg)
 
+[logo-techxartisan-dark-np](https://assets.openterface.com/images/logo/techxartisan-dark-np.svg)
+
 [logo-techxartisan-dark](https://assets.openterface.com/images/logo/techxartisan-dark.svg)
+
+[logo-techxartisan-light-np](https://assets.openterface.com/images/logo/techxartisan-light-np.svg)
 
 [logo-techxartisan-light](https://assets.openterface.com/images/logo/techxartisan-light.svg)
 
