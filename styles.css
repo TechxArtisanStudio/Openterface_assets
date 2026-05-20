@@ -582,14 +582,14 @@ main {
     transform: scale(1.03);
 }
 
-/* Image + data cards: overlay actions on media; show on hover (comfortable + compact) */
+/* Image + file cards: overlay actions on media; show on hover (comfortable + compact) */
 .asset-card-image .card-actions--inline,
-.asset-card-data .card-actions--inline {
+.asset-card-file .card-actions--inline {
     display: none;
 }
 
 .asset-card-image .card-actions.card-actions--overlay,
-.asset-card-data .card-actions.card-actions--overlay {
+.asset-card-file .card-actions.card-actions--overlay {
     display: flex;
     position: absolute;
     left: 0;
@@ -609,8 +609,8 @@ main {
 
 .asset-card-image .card-media:hover .card-actions--overlay,
 .asset-card-image .card-media:focus-within .card-actions--overlay,
-.asset-card-data .card-media:hover .card-actions--overlay,
-.asset-card-data .card-media:focus-within .card-actions--overlay {
+.asset-card-file .card-media:hover .card-actions--overlay,
+.asset-card-file .card-media:focus-within .card-actions--overlay {
     opacity: 1;
     pointer-events: auto;
 }
@@ -628,7 +628,7 @@ main {
     transition: filter 0.2s;
 }
 
-.asset-card-data:hover .file-preview {
+.asset-card-file:hover .file-preview {
     filter: brightness(0.97);
 }
 
@@ -671,6 +671,38 @@ main {
 .file-preview[data-ext=".txt"],
 .file-preview[data-ext=".xml"] {
     background: linear-gradient(145deg, #fafafa, #eeeeee);
+}
+
+.file-preview[data-cat="css"] {
+    background: linear-gradient(145deg, #f3e8fd, #e1bee7);
+}
+
+.file-preview[data-cat="css"] .file-preview-ext {
+    color: #7b1fa2;
+}
+
+.file-preview[data-cat="js"] {
+    background: linear-gradient(145deg, #fef7e0, #ffe082);
+}
+
+.file-preview[data-cat="js"] .file-preview-ext {
+    color: #e37400;
+}
+
+.file-preview[data-cat="md"] {
+    background: linear-gradient(145deg, #e6f4ea, #c8e6c9);
+}
+
+.file-preview[data-cat="md"] .file-preview-ext {
+    color: #137333;
+}
+
+.file-preview[data-cat="other"] {
+    background: linear-gradient(145deg, #f1f3f4, #e8eaed);
+}
+
+.file-preview[data-cat="other"] .file-preview-ext {
+    color: #5f6368;
 }
 
 .card-media-row {
@@ -986,7 +1018,7 @@ main {
 }
 
 .asset-grid.view-compact .asset-card-image,
-.asset-grid.view-compact .asset-card-data {
+.asset-grid.view-compact .asset-card-file {
     display: flex;
     flex-direction: column;
 }
@@ -1001,43 +1033,23 @@ main {
     aspect-ratio: 1 / 1;
 }
 
-.asset-grid.view-compact .asset-card-data .file-preview {
+.asset-grid.view-compact .asset-card-file .file-preview {
     aspect-ratio: 1 / 1;
     gap: 4px;
 }
 
-.asset-grid.view-compact .asset-card-data .file-preview-ext {
+.asset-grid.view-compact .asset-card-file .file-preview-ext {
     font-size: 0.68em;
 }
 
-.asset-grid.view-compact .asset-card-data .file-preview-icon {
+.asset-grid.view-compact .asset-card-file .file-preview-icon {
     font-size: 1.5rem;
-}
-
-.asset-grid.view-compact .asset-card-file .card-media-row {
-    padding: 8px 8px 0;
-}
-
-.asset-grid.view-compact .asset-card-file .file-icon {
-    width: 100%;
-    height: 48px;
-    min-width: unset;
-    font-size: 1.4rem;
-    border-radius: 6px;
 }
 
 .asset-grid.view-compact .card-body {
     padding: 6px 8px 8px;
     gap: 4px;
     flex: 1;
-    min-height: 3.2em;
-}
-
-.asset-grid.view-compact .asset-card-file:not(.asset-card-data) .card-body {
-    min-height: 4.5em;
-}
-
-.asset-grid.view-compact .asset-card-data .card-body {
     min-height: 3.2em;
 }
 
@@ -1062,15 +1074,15 @@ main {
     display: none;
 }
 
-/* Compact: smaller overlay buttons on image + data media */
+/* Compact: smaller overlay buttons on image + file media */
 .asset-grid.view-compact .asset-card-image .card-actions--overlay,
-.asset-grid.view-compact .asset-card-data .card-actions--overlay {
+.asset-grid.view-compact .asset-card-file .card-actions--overlay {
     padding: 20px 4px 6px;
     gap: 4px;
 }
 
 .asset-grid.view-compact .asset-card-image .card-actions--overlay .icon-btn,
-.asset-grid.view-compact .asset-card-data .card-actions--overlay .icon-btn {
+.asset-grid.view-compact .asset-card-file .card-actions--overlay .icon-btn {
     width: 26px;
     height: 26px;
     padding: 4px;
@@ -1079,25 +1091,6 @@ main {
 }
 
 .asset-grid.view-compact .card-actions--overlay .icon-btn svg {
-    width: 12px;
-    height: 12px;
-}
-
-/* Compact: non-data file cards keep inline actions under title */
-.asset-grid.view-compact .asset-card-file:not(.asset-card-data) .card-actions--inline {
-    display: flex;
-    gap: 4px;
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.asset-grid.view-compact .asset-card-file:not(.asset-card-data) .card-actions--inline .icon-btn {
-    width: 26px;
-    height: 26px;
-    padding: 4px;
-}
-
-.asset-grid.view-compact .asset-card-file:not(.asset-card-data) .card-actions--inline .icon-btn svg {
     width: 12px;
     height: 12px;
 }

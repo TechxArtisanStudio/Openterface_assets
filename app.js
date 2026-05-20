@@ -113,8 +113,11 @@
         return bare ? bare.toUpperCase() : 'FILE';
     }
 
-    function usesMediaOverlay(asset) {
-        return asset.is_image || asset.category === 'data';
+    function filePreviewLabel(asset) {
+        if (asset.category === 'data') return fileExtLabel(asset.ext);
+        const byCategory = { css: 'CSS', js: 'JS', md: 'MD' };
+        if (byCategory[asset.category]) return byCategory[asset.category];
+        return fileExtLabel(asset.ext);
     }
 
     async function copyText(text, btn) {
@@ -158,22 +161,6 @@
         }
     }
 
-    function syncCardActionVisibility() {
-        const compact = viewMode === 'compact';
-        gridEl.querySelectorAll('.asset-card-image .card-actions--overlay, .asset-card-data .card-actions--overlay').forEach((el) => {
-            el.hidden = false;
-            el.setAttribute('aria-hidden', 'false');
-        });
-        gridEl.querySelectorAll('.asset-card-image .card-actions--inline, .asset-card-data .card-actions--inline').forEach((el) => {
-            el.hidden = true;
-            el.setAttribute('aria-hidden', 'true');
-        });
-        gridEl.querySelectorAll('.asset-card-file:not(.asset-card-data) .card-actions--inline').forEach((el) => {
-            el.hidden = compact;
-            el.setAttribute('aria-hidden', compact ? 'true' : 'false');
-        });
-    }
-
     function setViewMode(mode) {
         viewMode = mode === 'compact' ? 'compact' : 'comfortable';
         try {
@@ -182,7 +169,6 @@
             /* ignore */
         }
         gridEl.classList.toggle('view-compact', viewMode === 'compact');
-        syncCardActionVisibility();
         if (viewToggle) {
             viewToggle.querySelectorAll('.view-btn').forEach((btn) => {
                 const active = btn.dataset.view === viewMode;
@@ -193,11 +179,13 @@
     }
 
     function compareAssets(a, b) {
+        const tsA = Number(a.modified_ts) || 0;
+        const tsB = Number(b.modified_ts) || 0;
         if (sortMode === 'date-desc') {
-            return (b.modified_ts || 0) - (a.modified_ts || 0) || a.path.localeCompare(b.path);
+            return tsB - tsA || a.path.localeCompare(b.path);
         }
         if (sortMode === 'date-asc') {
-            return (a.modified_ts || 0) - (b.modified_ts || 0) || a.path.localeCompare(b.path);
+            return tsA - tsB || a.path.localeCompare(b.path);
         }
         return a.path.localeCompare(b.path);
     }
@@ -303,21 +291,14 @@
 
     function buildCard(asset) {
         const isImage = asset.is_image;
-        const useOverlay = usesMediaOverlay(asset);
         const displayPath = '/' + asset.path;
         const sizeLabel = formatSize(asset.size_bytes);
         const catLabel = CATEGORY_LABELS[asset.category] || asset.category;
-        let cardClass = 'asset-card';
-        if (isImage) cardClass += ' asset-card-image';
-        else {
-            cardClass += ' asset-card-file';
-            if (asset.category === 'data') cardClass += ' asset-card-data';
-        }
+        const cardClass = isImage ? 'asset-card asset-card-image' : 'asset-card asset-card-file';
 
         let html = `<article class="${cardClass}" data-path="${escapeHtml(asset.path.toLowerCase())}" data-category="${escapeHtml(asset.category)}" data-search="${escapeHtml(asset.search_text || '')}">`;
 
-        const actions = buildActionsHtml(asset, isImage, 'card-actions--inline');
-        const overlayActions = useOverlay ? buildActionsHtml(asset, isImage, 'card-actions--overlay') : null;
+        const overlayActions = buildActionsHtml(asset, isImage, 'card-actions--overlay');
 
         if (isImage) {
             html += `<div class="card-media">`;
@@ -326,16 +307,14 @@
             html += `</button>`;
             html += overlayActions.html;
             html += `</div>`;
-        } else if (asset.category === 'data') {
+        } else {
             html += `<div class="card-media card-media--file">`;
-            html += `<div class="file-preview" data-ext="${escapeHtml(asset.ext)}">`;
-            html += `<span class="file-preview-ext">${escapeHtml(fileExtLabel(asset.ext))}</span>`;
+            html += `<div class="file-preview" data-ext="${escapeHtml(asset.ext)}" data-cat="${escapeHtml(asset.category)}">`;
+            html += `<span class="file-preview-ext">${escapeHtml(filePreviewLabel(asset))}</span>`;
             html += `<span class="file-preview-icon" aria-hidden="true">${fileEmoji(asset.ext)}</span>`;
             html += `</div>`;
             html += overlayActions.html;
             html += `</div>`;
-        } else {
-            html += `<div class="card-media-row"><div class="file-icon" aria-hidden="true">${fileEmoji(asset.ext)}</div></div>`;
         }
 
         html += `<div class="card-body">`;
@@ -359,9 +338,6 @@
             html += `<span class="alt-chip"><a href="${escapeHtml(alt.url)}" target="_blank" rel="noopener noreferrer">Also as ${escapeHtml(alt.ext)}</a></span>`;
         }
 
-        if (!useOverlay) {
-            html += actions.html;
-        }
         html += `</div></article>`;
 
         const el = document.createElement('div');
@@ -374,8 +350,8 @@
                     e.stopPropagation();
                     const kind = btn.dataset.copy;
                     let text = asset.url;
-                    if (kind === 'md') text = actions.mdLink;
-                    if (kind === 'img') text = actions.mdImg;
+                    if (kind === 'md') text = overlayActions.mdLink;
+                    if (kind === 'img') text = overlayActions.mdImg;
                     copyText(text, btn);
                 });
             });
@@ -442,7 +418,6 @@
         });
 
         gridEl.appendChild(fragment);
-        syncCardActionVisibility();
         applyFilters(false);
     }
 
