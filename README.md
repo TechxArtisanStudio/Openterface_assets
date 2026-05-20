@@ -18,14 +18,17 @@ Files in `src/` are served as static assets and don't require detailed explanati
 ```
 Openterface_assets/
 ├── src/                    # Source files (served as static assets)
+│   ├── site/              # Asset browser UI (index.html, app.js, gate.js, styles.css)
 │   ├── css/               # Stylesheets
 │   ├── js/                # JavaScript files
 │   ├── images/            # Image assets
 │   ├── data/              # Data files
 │   └── openterface/       # Firmware files
 ├── dist/                  # Build output directory (generated)
+├── config.toml            # Base URL for manifest and link generation
 ├── scripts/               # Utility scripts
 │   ├── generate_url.py
+│   ├── generate_manifest.py
 │   ├── image_resizer.py
 │   ├── update_youtube_csv.py
 │   └── README_youtube_csv.md
@@ -41,6 +44,7 @@ The build process transforms source assets into optimized, production-ready file
 3. **Image Conversion**: Converts PNG/JPG/JPEG images to WebP format for better compression
 4. **CSS Minification**: Minifies CSS files using `csso`
 5. **JavaScript Minification**: Minifies JS files using `uglifyjs`
+6. **Site copy**: Copies `src/site/` to `dist/` root for the asset browser
 
 ```mermaid
 flowchart TD
@@ -76,7 +80,41 @@ flowchart TD
 **Usage**:
 ```bash
 ./build.sh
+python scripts/generate_manifest.py
+
+# Preview the asset browser locally
+python -m http.server 8080 --directory dist
+# Open http://localhost:8080/
 ```
+
+## Asset Browser
+
+The site at the repository root URL (`https://assets.openterface.com/` when deployed) is a read-only browser for everything in `dist/`:
+
+- **Search** by filename, path, or folder (press `/` to focus the search box)
+- **Filter** by category: Images, Data (including APKs), CSS, JavaScript, Markdown, Other
+- **Copy** raw URL, markdown link, or markdown image syntax
+- **Preview** images in a lightbox
+- **View toggle** — Comfortable (default) or **Compact** for a denser grid (preference saved in your browser)
+- **Sort** — Name A–Z, **Newest first**, or **Oldest first** (uses last Git commit date per file in `src/` as the upload/update time)
+
+The catalog is generated from built files (not `links/*.md`), so it always matches what GitHub Pages serves. Raster images with both JPEG/PNG and WebP variants appear once (WebP preferred).
+
+## Access (password gate)
+
+The asset browser homepage is protected by a **lightweight frontend gate** (shared team password). This only hides the browse UI from casual visitors—it is **not** strong security.
+
+- **Remember on this device** is enabled by default: after entering the password once, your browser keeps access for **30 days** (`localStorage`).
+- Uncheck “Remember on this device” to require the password again when the browser session ends (`sessionStorage` only).
+- Use **Log out** in the header to clear stored access on shared machines.
+
+**Still public without the password:**
+
+- Direct CDN URLs (`/images/...`, `/data/...`, etc.)
+- `https://assets.openterface.com/assets.json`
+- All files in this public GitHub repository
+
+Do not rely on this gate to protect confidential assets; use private hosting if you need real access control.
 
 ## Overall Project Architecture
 

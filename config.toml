@@ -1,0 +1,14 @@
+[repository]
+# Base URL for generated asset links and the asset browser manifest
+base_url = "https://assets.openterface.com"
+
+# GitHub Pages domain (for CNAME)
+# Leave empty if using default github.io domain
+domain = ""
+
+[build]
+image_dirs = ["images"]
+css_dirs = ["css"]
+js_dirs = ["js"]
+data_dirs = ["data"]
+md_dirs = ["md"]

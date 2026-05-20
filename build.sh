@@ -81,4 +81,11 @@ for file in $js_files; do
   uglifyjs "$file" -o "$output_file"
 done
 
+# Copy static asset browser site to dist root
+if [ -d src/site ] && [ "$(ls -A src/site 2>/dev/null)" ]; then
+    echo "Copying site files to dist/..."
+    rsync -a src/site/ dist/
+    echo "Site files copied successfully."
+fi
+
 echo "Build process completed."

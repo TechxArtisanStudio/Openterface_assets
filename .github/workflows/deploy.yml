@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
@@ -18,6 +19,15 @@ jobs:
         with:
           node-version: '16'
 
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+
       - name: Install dependencies for minification and image conversion
         run: |
           sudo apt-get update
@@ -25,7 +35,28 @@ jobs:
           npm install -g uglify-js csso-cli
 
       - name: Build and minify project
-        run: sh ./build.sh
+        run: |
+          sh ./build.sh
+          if [ ! -d "dist" ] || [ -z "$(ls -A dist 2>/dev/null)" ]; then
+            echo "ERROR: dist/ directory is empty after build!"
+            exit 1
+          fi
+
+      - name: Generate asset links
+        run: |
+          python scripts/generate_url.py
+
+      - name: Build site manifest
+        run: |
+          python scripts/generate_manifest.py
+
+      - name: Verify build output
+        run: |
+          if [ ! -f dist/index.html ] || [ ! -f dist/assets.json ]; then
+            echo "ERROR: dist/index.html or dist/assets.json missing!"
+            exit 1
+          fi
+          echo "Asset browser files present"
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
