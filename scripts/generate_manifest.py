@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import os
+import struct
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -25,7 +26,7 @@ except ImportError:
     except ImportError:
         tomllib = None
 
-DEFAULT_BASE_URL = "https://assets.openterface.com"
+DEFAULT_BASE_URL = "https://assets2.openterface.com"
 
 EXCLUDE_NAMES = {
     "CNAME",
@@ -83,6 +84,67 @@ def ext_category(ext: str, rel_path: str) -> str:
     if top == "md":
         return "md"
     return "other"
+
+
+def _dimensions_from_bytes(data: bytes, ext: str) -> Tuple[Optional[int], Optional[int]]:
+    ext = ext.lower()
+    if ext == ".webp" and len(data) >= 30 and data[0:4] == b"RIFF" and data[8:12] == b"WEBP":
+        tag = data[12:16]
+        if tag == b"VP8 " and len(data) >= 30:
+            w = struct.unpack("<H", data[26:28])[0] & 0x3FFF
+            h = struct.unpack("<H", data[28:30])[0] & 0x3FFF
+            return w, h
+        if tag == b"VP8L" and len(data) >= 25:
+            bits = struct.unpack("<I", data[21:25])[0]
+            return (bits & 0x3FFF) + 1, ((bits >> 14) & 0x3FFF) + 1
+        if tag == b"VP8X" and len(data) >= 30:
+            w = 1 + (data[24] | (data[25] << 8) | (data[26] << 16))
+            h = 1 + (data[27] | (data[28] << 8) | (data[29] << 16))
+            return w, h
+    if ext in {".png", ".apng"} and len(data) >= 24 and data[0:8] == b"\x89PNG\r\n\x1a\n":
+        w, h = struct.unpack(">II", data[16:24])
+        return int(w), int(h)
+    if ext in {".jpg", ".jpeg"} and len(data) >= 4 and data[0:2] == b"\xff\xd8":
+        i = 2
+        while i + 9 < len(data):
+            if data[i] != 0xFF:
+                i += 1
+                continue
+            marker = data[i + 1]
+            if marker in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+                h = struct.unpack(">H", data[i + 5 : i + 7])[0]
+                w = struct.unpack(">H", data[i + 7 : i + 9])[0]
+                return w, h
+            if marker in (0xD8, 0xD9) or marker == 0x01:
+                i += 2
+                continue
+            seg_len = struct.unpack(">H", data[i + 2 : i + 4])[0]
+            i += 2 + seg_len
+    return None, None
+
+
+def image_dimensions(dist_file: Path) -> Tuple[Optional[int], Optional[int]]:
+    """Pixel size of a raster image in dist/ (for masonry placeholders)."""
+    if not dist_file.exists():
+        return None, None
+    ext = dist_file.suffix.lower()
+    if ext in {".svg", ".gif"}:
+        return None, None
+    try:
+        from PIL import Image
+
+        with Image.open(dist_file) as im:
+            w, h = im.size
+            if w > 0 and h > 0:
+                return int(w), int(h)
+    except Exception:
+        pass
+    try:
+        with open(dist_file, "rb") as f:
+            head = f.read(512)
+        return _dimensions_from_bytes(head, ext)
+    except Exception:
+        return None, None
 
 
 def dedupe_key(rel_path: str) -> str:
@@ -275,7 +337,11 @@ def _make_entry(
         )
     )
 
-    return {
+    width, height = None, None
+    if is_image and full.exists():
+        width, height = image_dimensions(full)
+
+    entry = {
         "name": name,
         "path": rel_str,
         "url": url,
@@ -289,6 +355,10 @@ def _make_entry(
         "search_text": search_text,
         "alternates": alternates,
     }
+    if width and height:
+        entry["width"] = width
+        entry["height"] = height
+    return entry
 
 
 def group_by_category(assets: List[Dict]) -> List[Dict]:

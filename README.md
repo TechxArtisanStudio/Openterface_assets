@@ -95,7 +95,8 @@ The site at the repository root URL (`https://assets.openterface.com/` when depl
 - **Filter** by category: Images, Data (including APKs), CSS, JavaScript, Markdown, Other
 - **Copy** raw URL, markdown link, or markdown image syntax
 - **Preview** images in a lightbox
-- **View toggle** — Comfortable (default) or **Compact** for a denser grid (preference saved in your browser)
+- **View toggle** — **Comfortable** (default grid), **Compact** (denser grid), or **Masonry** (Pinterest-style columns sized by each image’s aspect ratio; preference saved in your browser)
+- **Lazy loading** — thumbnails load as you scroll (all three views) via `IntersectionObserver`, with shimmer placeholders sized from manifest dimensions
 - **Sort** — Name A–Z, **Newest first**, or **Oldest first** (uses last Git commit date per file in `src/` as the upload/update time)
 
 The catalog is generated from built files (not `links/*.md`), so it always matches what GitHub Pages serves. Raster images with both JPEG/PNG and WebP variants appear once (WebP preferred).

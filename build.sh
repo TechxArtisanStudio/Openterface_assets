@@ -41,8 +41,10 @@ echo "Converting images to WebP format..."
 for file in $image_files; do
   target_dir="dist/images/$(dirname "$file" | sed "s|^src\/images||")"
   mkdir -p "$target_dir"
-  echo "Processing image: $file -> $target_dir$(basename "${file%.*}.webp")"
-  cwebp "$file" -o "$target_dir/$(basename "${file%.*}.webp")"
+  output_file="$target_dir/$(basename "${file%.*}.webp")"
+  echo "Processing image: $file -> $output_file"
+  rm -f "$output_file"
+  cwebp "$file" -o "$output_file"
 done
 
 # Generate a list of CSS files to minify
