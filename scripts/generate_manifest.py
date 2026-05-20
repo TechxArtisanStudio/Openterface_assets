@@ -124,17 +124,24 @@ def src_candidates_for_dist(dist_rel: str) -> List[Path]:
             candidates.append(stem.with_suffix(ext))
     elif dist_rel.startswith(("css/", "js/")):
         p = Path(dist_rel)
-        if p.suffix == ".min.css":
-            candidates.append(Path("src") / p.with_name(p.stem.replace(".min", "") + ".css"))
-        elif p.suffix == ".min.js":
-            candidates.append(Path("src") / p.with_name(p.stem.replace(".min", "") + ".js"))
+        name = p.name
+        # Path.suffix is only ".css"/".js" for "*.min.css" — match full name instead
+        if name.endswith(".min.css"):
+            candidates.append(Path("src") / p.parent / name.replace(".min.css", ".css"))
+        elif name.endswith(".min.js"):
+            candidates.append(Path("src") / p.parent / name.replace(".min.js", ".js"))
     return candidates
 
 
 def modified_timestamp(
     project_root: Path, dist_dir: Path, dist_paths: List[str]
 ) -> Tuple[int, Optional[str]]:
-    """Best-effort modified time from git history, then src/dist file mtime."""
+    """Best-effort modified time from git history on src/, then src/dist file mtime.
+
+    Dist file mtime is only used as a last resort (e.g. generated outputs with no
+    src mapping). Using dist mtime after every build would make all assets share
+    the build time and break newest/oldest sorting.
+    """
     best_ts = 0
     for dist_rel in dist_paths:
         for src_path in src_candidates_for_dist(dist_rel):
@@ -145,11 +152,13 @@ def modified_timestamp(
                 ts = int(src_path.stat().st_mtime)
             if ts > best_ts:
                 best_ts = ts
-        dist_file = dist_dir / dist_rel
-        if dist_file.exists():
-            ts = int(dist_file.stat().st_mtime)
-            if ts > best_ts:
-                best_ts = ts
+    if not best_ts:
+        for dist_rel in dist_paths:
+            dist_file = dist_dir / dist_rel
+            if dist_file.exists():
+                ts = int(dist_file.stat().st_mtime)
+                if ts > best_ts:
+                    best_ts = ts
     if not best_ts:
         return 0, None
     iso = datetime.fromtimestamp(best_ts, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
