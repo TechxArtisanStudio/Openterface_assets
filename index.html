@@ -64,6 +64,7 @@
                             <div class="filters-scroll">
                                 <div id="category-tabs" class="category-tabs" role="tablist" aria-label="Asset categories"></div>
                             </div>
+                            <div class="toolbar-actions">
                             <label class="sort-wrap">
                                 <span class="sr-only">Sort order</span>
                                 <select id="sort-select" class="sort-select" aria-label="Sort order">
@@ -72,7 +73,7 @@
                                     <option value="date-asc">Oldest first</option>
                                 </select>
                             </label>
-                            <div id="view-toggle" class="view-toggle" role="group" aria-label="Display density">
+                            <div id="view-toggle" class="view-toggle" role="group" aria-label="Gallery layout">
                                 <button type="button" class="view-btn active" data-view="comfortable" aria-pressed="true" title="Comfortable cards">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
                                     <span class="view-btn-label">Comfortable</span>
@@ -81,6 +82,11 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="4" height="4" rx="0.5"/><rect x="8" y="2" width="4" height="4" rx="0.5"/><rect x="14" y="2" width="4" height="4" rx="0.5"/><rect x="20" y="2" width="2" height="4" rx="0.5"/><rect x="2" y="8" width="4" height="4" rx="0.5"/><rect x="8" y="8" width="4" height="4" rx="0.5"/><rect x="14" y="8" width="4" height="4" rx="0.5"/><rect x="20" y="8" width="2" height="4" rx="0.5"/><rect x="2" y="14" width="4" height="4" rx="0.5"/><rect x="8" y="14" width="4" height="4" rx="0.5"/><rect x="14" y="14" width="4" height="4" rx="0.5"/><rect x="20" y="14" width="2" height="4" rx="0.5"/><rect x="2" y="20" width="4" height="2" rx="0.5"/><rect x="8" y="20" width="4" height="2" rx="0.5"/><rect x="14" y="20" width="4" height="2" rx="0.5"/><rect x="20" y="20" width="2" height="2" rx="0.5"/></svg>
                                     <span class="view-btn-label">Compact</span>
                                 </button>
+                                <button type="button" class="view-btn" data-view="masonry" aria-pressed="false" title="Masonry — Pinterest-style columns by image size">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="11" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+                                    <span class="view-btn-label">Masonry</span>
+                                </button>
+                            </div>
                             </div>
                         </div>
                         <div id="status" class="status" role="status"></div>
@@ -88,6 +94,7 @@
                 </div>
 
                 <div id="grid" class="asset-grid"></div>
+                <div id="masonry-measure" class="masonry-measure" aria-hidden="true" hidden></div>
                 <p id="empty-state" class="empty-state hidden">No assets match your filters.</p>
             </main>
         </div>
