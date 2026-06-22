@@ -365,6 +365,24 @@ Copy and paste these links into your markdown files:
 
 [product-mini-kvm-pins-port](https://assets.openterface.com/images/product/mini-kvm-pins-port.webp)
 
+[product-kvmext-v2-box-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-box-1.webp)
+
+[product-kvmext-v2-box-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-box-2.webp)
+
+[product-kvmext-v2-hero-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-hero-1.webp)
+
+[product-kvmext-v2-hero-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-hero-2.webp)
+
+[product-kvmext-v2-pcb-detail](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-pcb-detail.webp)
+
+[product-kvmext-v2-pcb-front](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-pcb-front.webp)
+
+[product-kvmext-v2-use-case-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-1.webp)
+
+[product-kvmext-v2-use-case-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-2.webp)
+
+[product-kvmext-v2-use-case-3](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-3.webp)
+
 [product-openterface-kvm-uconsole-expansion-slot-text-orientation](https://assets.openterface.com/images/product/openterface-kvm-uconsole-expansion-slot-text-orientation.webp)
 
 [product-openterface-kvm-uconsole-extension-back](https://assets.openterface.com/images/product/openterface-kvm-uconsole-extension-back.webp)
