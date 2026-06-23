@@ -347,7 +347,7 @@ Copy and paste these links into your markdown files:
 
 [product-kvm-go-250805-kvm-go-group-3](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-group-3.webp)
 
-[product-kvm-go-250805-kvm-go-group-4 ](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-group-4 .webp)
+[product-kvm-go-250805-kvm-go-group-4](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-group-4.webp)
 
 [product-kvm-go-250805-kvm-go-hdmi-early-test-1](https://assets.openterface.com/images/product/kvm-go/250805/kvm-go-hdmi-early-test-1.webp)
 

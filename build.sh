@@ -44,7 +44,8 @@ if [ -n "$image_files" ]; then
     echo "$image_files"
 
     echo "Converting images to WebP format..."
-    for file in $image_files; do
+    echo "$image_files" | while IFS= read -r file; do
+        [ -n "$file" ] || continue
         rel_path=$(echo "$file" | sed "s|^src/images/||")
         rel_dir=$(dirname "$rel_path")
 
