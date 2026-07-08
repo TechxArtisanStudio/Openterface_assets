@@ -77,6 +77,30 @@ Copy and paste these links into your markdown files:
 
 [favicon](https://assets.openterface.com/images/favicon.webp)
 
+[forum-roles-BackingPal@2x](https://assets.openterface.com/images/forum/roles/BackingPal@2x.webp)
+
+[forum-roles-BackingPal_badge@2x](https://assets.openterface.com/images/forum/roles/BackingPal_badge@2x.webp)
+
+[forum-roles-BugHunter@2x](https://assets.openterface.com/images/forum/roles/BugHunter@2x.webp)
+
+[forum-roles-BugHunter_badge@2x](https://assets.openterface.com/images/forum/roles/BugHunter_badge@2x.webp)
+
+[forum-roles-ChaosPilot@2x](https://assets.openterface.com/images/forum/roles/ChaosPilot@2x.webp)
+
+[forum-roles-ChaosPilot_badge@2x](https://assets.openterface.com/images/forum/roles/ChaosPilot_badge@2x.webp)
+
+[forum-roles-CodeWizard@2x](https://assets.openterface.com/images/forum/roles/CodeWizard@2x.webp)
+
+[forum-roles-CodeWizard_badge@2x](https://assets.openterface.com/images/forum/roles/CodeWizard_badge@2x.webp)
+
+[forum-roles-DevHero@2x](https://assets.openterface.com/images/forum/roles/DevHero@2x.webp)
+
+[forum-roles-DevHero_badge@2x](https://assets.openterface.com/images/forum/roles/DevHero_badge@2x.webp)
+
+[forum-roles-SupportStar@2x](https://assets.openterface.com/images/forum/roles/SupportStar@2x.webp)
+
+[forum-roles-SupportStar_badge@2x](https://assets.openterface.com/images/forum/roles/SupportStar_badge@2x.webp)
+
 [guide-macos-dmg-installation1](https://assets.openterface.com/images/guide/macos-dmg-installation1.webp)
 
 [guide-macos-dmg-installation2](https://assets.openterface.com/images/guide/macos-dmg-installation2.webp)
@@ -363,25 +387,43 @@ Copy and paste these links into your markdown files:
 
 [product-kvm-go-250925-with-new-keychain](https://assets.openterface.com/images/product/kvm-go/250925/with-new-keychain.webp)
 
+[product-kvmext-v2-kvmext-v2-box-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-box-1.webp)
+
+[product-kvmext-v2-kvmext-v2-box-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-box-1.webp)
+
+[product-kvmext-v2-kvmext-v2-box-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-box-2.webp)
+
+[product-kvmext-v2-kvmext-v2-box-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-box-2.webp)
+
+[product-kvmext-v2-kvmext-v2-hero-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-hero-1.webp)
+
+[product-kvmext-v2-kvmext-v2-hero-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-hero-1.webp)
+
+[product-kvmext-v2-kvmext-v2-hero-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-hero-2.webp)
+
+[product-kvmext-v2-kvmext-v2-hero-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-hero-2.webp)
+
+[product-kvmext-v2-kvmext-v2-pcb-detail](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-pcb-detail.webp)
+
+[product-kvmext-v2-kvmext-v2-pcb-detail](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-pcb-detail.webp)
+
+[product-kvmext-v2-kvmext-v2-pcb-front](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-pcb-front.webp)
+
+[product-kvmext-v2-kvmext-v2-pcb-front](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-pcb-front.webp)
+
+[product-kvmext-v2-kvmext-v2-use-case-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-1.webp)
+
+[product-kvmext-v2-kvmext-v2-use-case-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-1.webp)
+
+[product-kvmext-v2-kvmext-v2-use-case-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-2.webp)
+
+[product-kvmext-v2-kvmext-v2-use-case-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-2.webp)
+
+[product-kvmext-v2-kvmext-v2-use-case-3](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-3.webp)
+
+[product-kvmext-v2-kvmext-v2-use-case-3](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-3.webp)
+
 [product-mini-kvm-pins-port](https://assets.openterface.com/images/product/mini-kvm-pins-port.webp)
-
-[product-kvmext-v2-box-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-box-1.webp)
-
-[product-kvmext-v2-box-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-box-2.webp)
-
-[product-kvmext-v2-hero-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-hero-1.webp)
-
-[product-kvmext-v2-hero-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-hero-2.webp)
-
-[product-kvmext-v2-pcb-detail](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-pcb-detail.webp)
-
-[product-kvmext-v2-pcb-front](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-pcb-front.webp)
-
-[product-kvmext-v2-use-case-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-1.webp)
-
-[product-kvmext-v2-use-case-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-2.webp)
-
-[product-kvmext-v2-use-case-3](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-3.webp)
 
 [product-openterface-kvm-uconsole-expansion-slot-text-orientation](https://assets.openterface.com/images/product/openterface-kvm-uconsole-expansion-slot-text-orientation.webp)
 
@@ -504,6 +546,38 @@ Copy and paste these links into your markdown files:
 [qt-preferenceTargetControl](https://assets.openterface.com/images/qt/preferenceTargetControl.webp)
 
 [qt-preferenceVideo](https://assets.openterface.com/images/qt/preferenceVideo.webp)
+
+[social-posts-avatars-ig-463n7-homelab](https://assets.openterface.com/images/social-posts/avatars/ig-463n7-homelab.webp)
+
+[social-posts-avatars-ig-463n7-reel](https://assets.openterface.com/images/social-posts/avatars/ig-463n7-reel.webp)
+
+[social-posts-avatars-ig-cybermax560](https://assets.openterface.com/images/social-posts/avatars/ig-cybermax560.webp)
+
+[social-posts-avatars-ig-m0use-edc](https://assets.openterface.com/images/social-posts/avatars/ig-m0use-edc.webp)
+
+[social-posts-avatars-ig-nester-1](https://assets.openterface.com/images/social-posts/avatars/ig-nester-1.webp)
+
+[social-posts-avatars-ig-nester-2](https://assets.openterface.com/images/social-posts/avatars/ig-nester-2.webp)
+
+[social-posts-avatars-ig-txa-compose](https://assets.openterface.com/images/social-posts/avatars/ig-txa-compose.webp)
+
+[social-posts-avatars-ig-txa-gamepad](https://assets.openterface.com/images/social-posts/avatars/ig-txa-gamepad.webp)
+
+[social-posts-ig-463n7-homelab](https://assets.openterface.com/images/social-posts/ig-463n7-homelab.webp)
+
+[social-posts-ig-463n7-reel](https://assets.openterface.com/images/social-posts/ig-463n7-reel.webp)
+
+[social-posts-ig-cybermax560](https://assets.openterface.com/images/social-posts/ig-cybermax560.webp)
+
+[social-posts-ig-m0use-edc](https://assets.openterface.com/images/social-posts/ig-m0use-edc.webp)
+
+[social-posts-ig-nester-1](https://assets.openterface.com/images/social-posts/ig-nester-1.webp)
+
+[social-posts-ig-nester-2](https://assets.openterface.com/images/social-posts/ig-nester-2.webp)
+
+[social-posts-ig-txa-compose](https://assets.openterface.com/images/social-posts/ig-txa-compose.webp)
+
+[social-posts-ig-txa-gamepad](https://assets.openterface.com/images/social-posts/ig-txa-gamepad.webp)
 
 [software-MacOS_FactoryResetHID](https://assets.openterface.com/images/software/MacOS_FactoryResetHID.webp)
 

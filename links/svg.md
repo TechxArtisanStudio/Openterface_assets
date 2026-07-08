@@ -41,6 +41,10 @@ Copy and paste these links into your markdown files:
 
 [feature-icons-icon-usb-switch](https://assets.openterface.com/images/feature-icons/icon-usb-switch.svg)
 
+[keymod-KeyCmd](https://assets.openterface.com/images/keymod/KeyCmd.svg)
+
+[keymod-KeyMod](https://assets.openterface.com/images/keymod/KeyMod.svg)
+
 [logo-openterface-dark-np](https://assets.openterface.com/images/logo/openterface-dark-np.svg)
 
 [logo-openterface-dark](https://assets.openterface.com/images/logo/openterface-dark.svg)
