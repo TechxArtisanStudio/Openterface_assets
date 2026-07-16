@@ -1,7 +1,7 @@
 # Firmware File Links (openterface)
 
-Generated from source files in `src/openterface/firmware/`
-These URLs are predicted based on build transformations.
+Generated from built files in `dist/openterface/firmware/`
+These are the actual URLs available after build.
 
 Copy and paste these links into your markdown files:
 

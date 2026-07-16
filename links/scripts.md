@@ -1,7 +1,7 @@
 # Python Script Links (root)
 
-Generated from source files in `src/scripts/`
-These URLs are predicted based on build transformations.
+Generated from built files in `dist/scripts/`
+These are the actual URLs available after build.
 
 Copy and paste these links into your markdown files:
 

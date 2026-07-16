@@ -115,6 +115,15 @@ FILE_TYPE_MAPPING = {
         'transform': lambda p: p,  # No transformation
         'output_file': 'scripts.md',
         'description': 'Python Script Links (root)'
+    },
+    'mp4': {
+        'extensions': ['.mp4'],
+        'src_dir': 'src/keymod',
+        'dist_dir': 'dist/keymod',
+        'url_path': 'keymod',
+        'transform': lambda p: p,  # No transformation
+        'output_file': 'mp4.md',
+        'description': 'MP4 Video Links (keymod)'
     }
 }
 

@@ -1,7 +1,7 @@
 # Firmware File Links (root)
 
-Generated from source files in `src/firmware/`
-These URLs are predicted based on build transformations.
+Generated from built files in `dist/firmware/`
+These are the actual URLs available after build.
 
 Copy and paste these links into your markdown files:
 

@@ -1,7 +1,7 @@
 # WebP Image Links
 
-Generated from source files in `src/images/`
-These URLs are predicted based on build transformations.
+Generated from built files in `dist/images/`
+These are the actual URLs available after build.
 
 Copy and paste these links into your markdown files:
 
@@ -389,37 +389,19 @@ Copy and paste these links into your markdown files:
 
 [product-kvmext-v2-kvmext-v2-box-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-box-1.webp)
 
-[product-kvmext-v2-kvmext-v2-box-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-box-1.webp)
-
 [product-kvmext-v2-kvmext-v2-box-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-box-2.webp)
-
-[product-kvmext-v2-kvmext-v2-box-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-box-2.webp)
-
-[product-kvmext-v2-kvmext-v2-hero-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-hero-1.webp)
 
 [product-kvmext-v2-kvmext-v2-hero-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-hero-1.webp)
 
 [product-kvmext-v2-kvmext-v2-hero-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-hero-2.webp)
 
-[product-kvmext-v2-kvmext-v2-hero-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-hero-2.webp)
-
 [product-kvmext-v2-kvmext-v2-pcb-detail](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-pcb-detail.webp)
-
-[product-kvmext-v2-kvmext-v2-pcb-detail](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-pcb-detail.webp)
-
-[product-kvmext-v2-kvmext-v2-pcb-front](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-pcb-front.webp)
 
 [product-kvmext-v2-kvmext-v2-pcb-front](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-pcb-front.webp)
 
 [product-kvmext-v2-kvmext-v2-use-case-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-1.webp)
 
-[product-kvmext-v2-kvmext-v2-use-case-1](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-1.webp)
-
 [product-kvmext-v2-kvmext-v2-use-case-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-2.webp)
-
-[product-kvmext-v2-kvmext-v2-use-case-2](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-2.webp)
-
-[product-kvmext-v2-kvmext-v2-use-case-3](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-3.webp)
 
 [product-kvmext-v2-kvmext-v2-use-case-3](https://assets.openterface.com/images/product/kvmext-v2/kvmext-v2-use-case-3.webp)
 
@@ -499,15 +481,11 @@ Copy and paste these links into your markdown files:
 
 [product-toolkit-open](https://assets.openterface.com/images/product/toolkit-open.webp)
 
-[product-toolkit-open](https://assets.openterface.com/images/product/toolkit-open.webp)
-
 [product-toolkit-parts-layout-2-numbers-2024](https://assets.openterface.com/images/product/toolkit-parts-layout-2-numbers-2024.webp)
 
 [product-toolkit-parts-layout-numbers](https://assets.openterface.com/images/product/toolkit-parts-layout-numbers.webp)
 
 [product-toolkit-parts](https://assets.openterface.com/images/product/toolkit-parts.webp)
-
-[product-use-case-demo-industrial-pc](https://assets.openterface.com/images/product/use-case-demo-industrial-pc.webp)
 
 [product-use-case-demo-industrial-pc](https://assets.openterface.com/images/product/use-case-demo-industrial-pc.webp)
 

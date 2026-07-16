@@ -1,7 +1,7 @@
 # Python Script Links (openterface)
 
-Generated from source files in `src/openterface/scripts/`
-These URLs are predicted based on build transformations.
+Generated from built files in `dist/openterface/scripts/`
+These are the actual URLs available after build.
 
 Copy and paste these links into your markdown files:
 

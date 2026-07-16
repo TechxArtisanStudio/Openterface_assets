@@ -35,6 +35,7 @@ copy_dir src/scripts/ dist/scripts/ "scripts"
 copy_dir src/openterface/firmware/ dist/openterface/firmware/ "openterface firmware"
 copy_dir src/openterface/scripts/ dist/openterface/scripts/ "openterface scripts"
 copy_dir src/minikvm/ dist/minikvm/ "minikvm"
+copy_dir src/keymod/ dist/keymod/ "keymod"
 
 echo "Generating list of image files to convert to WebP..."
 image_files=$(find src/images -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) 2>/dev/null || true)

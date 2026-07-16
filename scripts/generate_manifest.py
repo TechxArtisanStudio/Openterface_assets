@@ -44,6 +44,7 @@ PREFERRED_RASTER = ".webp"
 
 CATEGORY_ORDER = [
     ("images", "Images", IMAGE_EXTENSIONS),
+    ("video", "Video", {".mp4", ".mov", ".webm"}),
     ("data", "Data", {".csv", ".json", ".txt", ".xml", ".apk"}),
     ("css", "CSS", {".css", ".min.css"}),
     ("js", "JavaScript", {".js", ".min.js"}),
@@ -75,6 +76,8 @@ def ext_category(ext: str, rel_path: str) -> str:
     top = rel_path.split("/")[0] if "/" in rel_path else rel_path
     if top == "images" and ext in IMAGE_EXTENSIONS:
         return "images"
+    if ext in {".mp4", ".mov", ".webm"}:
+        return "video"
     if top == "data":
         return "data"
     if top == "css":

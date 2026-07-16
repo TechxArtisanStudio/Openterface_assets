@@ -1,7 +1,7 @@
 # Data File Links
 
-Generated from source files in `src/data/`
-These URLs are predicted based on build transformations.
+Generated from built files in `dist/data/`
+These are the actual URLs available after build.
 
 Copy and paste these links into your markdown files:
 

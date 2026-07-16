@@ -1,7 +1,7 @@
 # GIF Image Links
 
-Generated from source files in `src/images/`
-These URLs are predicted based on build transformations.
+Generated from built files in `dist/images/`
+These are the actual URLs available after build.
 
 Copy and paste these links into your markdown files:
 
