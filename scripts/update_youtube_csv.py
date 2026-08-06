@@ -14,6 +14,7 @@ import os
 import re
 import sys
 import csv
+import json
 import time
 import argparse
 from pathlib import Path
@@ -166,7 +167,9 @@ class YouTubeMetadataFetcher:
                 'video_thumbnail_url': '',
                 'date': '',
                 'views': '',
-                'description': ''
+                'description': '',
+                'like_count': '',
+                'comment_count': '',
             }
             self.cache[video_id] = empty_metadata
             return empty_metadata
@@ -188,7 +191,9 @@ class YouTubeMetadataFetcher:
                     'video_thumbnail_url': video_thumbnail,  # Video thumbnail from oEmbed
                     'date': '',  # oEmbed doesn't provide date
                     'views': '',  # oEmbed doesn't provide views
-                    'description': ''
+                    'description': '',
+                    'like_count': '',
+                    'comment_count': '',
                 }
                 
                 # Try to get additional info from the video page
@@ -208,10 +213,34 @@ class YouTubeMetadataFetcher:
             'video_thumbnail_url': '',
             'date': '',
             'views': '',
-            'description': ''
+            'description': '',
+            'like_count': '',
+            'comment_count': '',
         }
         self.cache[video_id] = empty_metadata
         return empty_metadata
+
+    @staticmethod
+    def _parse_count_string(raw: str) -> Optional[int]:
+        """Parse a count that may be plain digits, comma-grouped, or K/M/B shorthand."""
+        if not raw:
+            return None
+        text = raw.strip().replace(',', '').replace('\u00a0', '')
+        if not text:
+            return None
+        match = re.fullmatch(r'(\d+(?:\.\d+)?)\s*([KkMmBb])?', text)
+        if not match:
+            digits = re.sub(r'[^\d]', '', text)
+            return int(digits) if digits.isdigit() else None
+        value = float(match.group(1))
+        suffix = (match.group(2) or '').upper()
+        if suffix == 'K':
+            value *= 1_000
+        elif suffix == 'M':
+            value *= 1_000_000
+        elif suffix == 'B':
+            value *= 1_000_000_000
+        return int(value)
     
     def _fetch_additional_metadata(self, video_id: str, metadata: Dict[str, str]):
         """Try to fetch additional metadata from the video page."""
@@ -227,6 +256,52 @@ class YouTubeMetadataFetcher:
                 if views_match:
                     views = int(views_match.group(1))
                     metadata['views'] = str(views)  # Store as number, not formatted
+
+                # Likes: numeric likeCount and/or accessibility label
+                like_count = None
+                like_match = re.search(r'"likeCount":"(\d+)"', content)
+                if like_match:
+                    like_count = int(like_match.group(1))
+                if like_count is None:
+                    like_label = re.search(
+                        r'like this video along with ([\d,.\sKkMmBb]+) other people',
+                        content,
+                        re.IGNORECASE,
+                    )
+                    if like_label:
+                        like_count = self._parse_count_string(like_label.group(1))
+                if like_count is None:
+                    like_label = re.search(
+                        r'"label":"([\d,.\sKkMmBb]+) likes?"',
+                        content,
+                        re.IGNORECASE,
+                    )
+                    if like_label:
+                        like_count = self._parse_count_string(like_label.group(1))
+                if like_count is not None:
+                    metadata['like_count'] = str(like_count)
+
+                # Comments: commentCount / commentCountText patterns
+                comment_count = None
+                for pattern in (
+                    r'"commentCount":"(\d+)"',
+                    r'"commentCount":\s*\{\s*"simpleText":\s*"([^"]+)"',
+                    r'"commentCountText":\s*\{\s*"simpleText":\s*"([^"]+)"',
+                    r'"contextualInfo":\s*\{\s*"runs":\s*\[\s*\{\s*"text":\s*"([\d,.\sKkMmBb]+)\s+Comments?"',
+                ):
+                    comment_match = re.search(pattern, content, re.IGNORECASE)
+                    if comment_match:
+                        comment_count = self._parse_count_string(comment_match.group(1))
+                        if comment_count is not None:
+                            break
+                if comment_count is not None:
+                    metadata['comment_count'] = str(comment_count)
+
+                # Comment counts are often omitted from the watch HTML; fetch via Innertube next.
+                if not metadata.get('comment_count', '').strip():
+                    innertube_comments = self._fetch_comment_count_innertube(video_id)
+                    if innertube_comments is not None:
+                        metadata['comment_count'] = str(innertube_comments)
                 
                 # Extract publish date
                 date_match = re.search(r'"publishDate":"(\d{4}-\d{2}-\d{2})"', content)
@@ -312,11 +387,122 @@ class YouTubeMetadataFetcher:
             # Silently fail for additional metadata
             pass
 
+    def _fetch_comment_count_innertube(self, video_id: str) -> Optional[int]:
+        """Fetch comment count via YouTube Innertube next (public web client key)."""
+        # Public key embedded in YouTube's web client (same approach used by many open tools).
+        innertube_key = 'AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8'
+        url = f'https://www.youtube.com/youtubei/v1/next?key={innertube_key}'
+        payload = {
+            'context': {
+                'client': {
+                    'clientName': 'WEB',
+                    'clientVersion': '2.20240101.00.00',
+                    'hl': 'en',
+                    'gl': 'US',
+                }
+            },
+            'videoId': video_id,
+        }
+        try:
+            response = self.session.post(
+                url,
+                json=payload,
+                timeout=15,
+                headers={
+                    'Content-Type': 'application/json',
+                    'X-Youtube-Client-Name': '1',
+                    'X-Youtube-Client-Version': '2.20240101.00.00',
+                },
+            )
+            if response.status_code != 200:
+                return None
+            data = response.json()
+
+            def walk(obj):
+                if isinstance(obj, dict):
+                    # engagement panel title contextualInfo: {"runs":[{"text":"28"}]}
+                    contextual = obj.get('contextualInfo')
+                    if isinstance(contextual, dict):
+                        runs = contextual.get('runs')
+                        if isinstance(runs, list) and runs:
+                            text = runs[0].get('text') if isinstance(runs[0], dict) else None
+                            if text is not None:
+                                parsed = self._parse_count_string(str(text))
+                                if parsed is not None:
+                                    # Prefer panels that look like comments
+                                    title = obj.get('title')
+                                    title_text = ''
+                                    if isinstance(title, dict):
+                                        title_text = (
+                                            title.get('simpleText')
+                                            or (title.get('runs') or [{}])[0].get('text', '')
+                                        )
+                                    header = str(title_text).lower()
+                                    if 'comment' in header or not header:
+                                        return parsed
+                    for value in obj.values():
+                        found = walk(value)
+                        if found is not None:
+                            return found
+                elif isinstance(obj, list):
+                    for item in obj:
+                        found = walk(item)
+                        if found is not None:
+                            return found
+                return None
+
+            # Prefer explicit commentsHeaderRenderer path when present
+            text_blob = json.dumps(data)
+            header_match = re.search(
+                r'"commentsHeaderRenderer":\{"countText":\{"runs":\[\{"text":"([^"]+)"\}',
+                text_blob,
+            )
+            if header_match:
+                parsed = self._parse_count_string(header_match.group(1))
+                if parsed is not None:
+                    return parsed
+
+            # Fallback: first contextualInfo under engagement panels (comment count)
+            for panel in data.get('engagementPanels') or []:
+                header = (
+                    ((panel or {}).get('engagementPanelSectionListRenderer') or {})
+                    .get('header', {})
+                    .get('engagementPanelTitleHeaderRenderer')
+                    or {}
+                )
+                contextual = header.get('contextualInfo') or {}
+                runs = contextual.get('runs') or []
+                if runs and isinstance(runs[0], dict):
+                    parsed = self._parse_count_string(str(runs[0].get('text', '')))
+                    if parsed is not None:
+                        return parsed
+
+            return walk(data)
+        except Exception:
+            return None
+
 
 class YouTubeCSVUpdater:
     """Updates YouTube CSV file with metadata."""
     
-    CSV_COLUMNS = ['youtube_url', 'title', 'author_name', 'thumbnail_url', 'video_thumbnail_url', 'date', 'views', 'description', 'fetch_date', 'z_index', 'language', 'product', 'action_status']
+    CSV_COLUMNS = [
+        'youtube_url',
+        'title',
+        'author_name',
+        'thumbnail_url',
+        'video_thumbnail_url',
+        'date',
+        'views',
+        'description',
+        'fetch_date',
+        'z_index',
+        'language',
+        'product',
+        'action_status',
+        'format',
+        'like_count',
+        'comment_count',
+    ]
     
     def __init__(self, csv_path: Path, dry_run: bool = False, verbose: bool = False, 
                  offline: bool = False, proxy: str = None, force: bool = False, 
@@ -468,9 +654,12 @@ class YouTubeCSVUpdater:
             ])
             return not has_metadata
             
-        # Default: update if missing critical fields (title or author_name)
+        # Default: update if missing critical fields or engagement counts
         missing_critical = not row.get('title', '').strip() or not row.get('author_name', '').strip()
-        return missing_critical
+        missing_engagement = (
+            not row.get('like_count', '').strip() or not row.get('comment_count', '').strip()
+        )
+        return missing_critical or missing_engagement
     
     def update_row(self, row: Dict[str, str], row_num: int = 0, total_rows: int = 0) -> Tuple[Dict[str, str], bool]:
         """Update a single row with fetched metadata. Returns (updated_row, success)."""
@@ -505,6 +694,10 @@ class YouTubeCSVUpdater:
             row['date'] = metadata.get('date', '')
             row['views'] = metadata.get('views', '')
             row['description'] = metadata.get('description', '')
+            if metadata.get('like_count', '').strip():
+                row['like_count'] = metadata.get('like_count', '')
+            if metadata.get('comment_count', '').strip():
+                row['comment_count'] = metadata.get('comment_count', '')
         else:
             # Normal mode: only fill empty fields, preserve user edits
             if not row.get('title', '').strip():
@@ -521,6 +714,10 @@ class YouTubeCSVUpdater:
                 row['views'] = metadata.get('views', '')
             if not row.get('description', '').strip():
                 row['description'] = metadata.get('description', '')
+            if not row.get('like_count', '').strip() and metadata.get('like_count', '').strip():
+                row['like_count'] = metadata.get('like_count', '')
+            if not row.get('comment_count', '').strip() and metadata.get('comment_count', '').strip():
+                row['comment_count'] = metadata.get('comment_count', '')
         
         # Update fetch_date if we fetched new data
         if metadata.get('title') or metadata.get('author_name'):
@@ -531,7 +728,12 @@ class YouTubeCSVUpdater:
             title_preview = metadata.get('title', '')[:50] + '...' if len(metadata.get('title', '')) > 50 else metadata.get('title', '')
             desc_len = len(metadata.get('description', ''))
             desc_info = f" (desc: {desc_len} chars)" if desc_len > 0 else ""
-            print(f" ✓ {title_preview}{desc_info}")
+            likes = metadata.get('like_count', '')
+            comments = metadata.get('comment_count', '')
+            engagement = ''
+            if likes or comments:
+                engagement = f" [❤ {likes or '?'} 💬 {comments or '?'}]"
+            print(f" ✓ {title_preview}{desc_info}{engagement}")
         else:
             print(f" ✗ Failed to fetch metadata")
         
