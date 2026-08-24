@@ -8,7 +8,7 @@ echo "Creating necessary directories..."
 mkdir -p dist/css dist/js dist/images dist/data
 mkdir -p dist/firmware dist/scripts
 mkdir -p dist/openterface/firmware dist/openterface/scripts
-mkdir -p dist/minikvm
+mkdir -p dist/minikvm dist/pdf
 
 if [ -f src/CNAME ]; then
     cp src/CNAME dist/CNAME
@@ -36,6 +36,7 @@ copy_dir src/openterface/firmware/ dist/openterface/firmware/ "openterface firmw
 copy_dir src/openterface/scripts/ dist/openterface/scripts/ "openterface scripts"
 copy_dir src/minikvm/ dist/minikvm/ "minikvm"
 copy_dir src/keymod/ dist/keymod/ "keymod"
+copy_dir src/pdf/ dist/pdf/ "pdf"
 
 echo "Generating list of image files to convert to WebP..."
 image_files=$(find src/images -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) 2>/dev/null || true)
